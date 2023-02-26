@@ -1,0 +1,24 @@
+html, footer, header, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+  
+* {
+    box-sizing: border-box;
+}
+
+$color-primary: #15DEA5;
+$color-secondary: blanchedalmond ;
+$color-gauche: red;
+$color-droite: blue;
+
+section{
+    flex-direction: column
+}
+
+button{
+    &__gauche{
+        color: $color-gauche;
+    }
+}
