@@ -1,0 +1,44 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: rgba(21, 222, 165, 0.5607843137);
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+}
+
+section {
+  background-color: #e6f9f8;
+}
+
+.button--left {
+  background-color: rgba(180, 8, 8, 0.797);
+}
+.button--right {
+  background-color: rgb(7, 7, 192);
+}
+.button--random {
+  background-color: rgba(21, 222, 165, 0.5607843137);
+}
+.button--langue {
+  background-color: #e6f9f8;
+}
+
+.logo {
+  width: 2%;
+  height: 2%;
+}
+
+footer {
+  background-color: rgba(21, 222, 165, 0.5607843137);
+  margin: 0;
+  padding: 0;
+}/*# sourceMappingURL=index.css.map */

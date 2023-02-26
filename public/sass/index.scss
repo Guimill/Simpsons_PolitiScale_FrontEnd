@@ -1,24 +1,52 @@
-html, footer, header, body {
+$color-primary: #15dea58f;
+$color-secondary: #e6f9f8 ;
+$color-gauche: rgba(180, 8, 8, 0.797);
+$color-droite: rgb(7, 7, 192);
+
+html{
     height: 100%;
-    margin: 0;
-    padding: 0;
+    width: 100%;
 }
   
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-$color-primary: #15DEA5;
-$color-secondary: blanchedalmond ;
-$color-gauche: red;
-$color-droite: blue;
+header{
+    background-color: $color-primary;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+}
+
 
 section{
-    flex-direction: column
+    background-color: $color-secondary;
 }
 
-button{
-    &__gauche{
-        color: $color-gauche;
+.button{
+    &--left{
+        background-color: $color-gauche;
     }
+    &--right{
+        background-color: $color-droite;
+    }
+    &--random{
+        background-color: $color-primary;
+    }
+    &--langue{
+        background-color: $color-secondary;
+    }
+}
+
+.logo{
+    width: 2%;
+    height: 2%;
+}
+
+footer{
+    background-color: $color-primary;
+    margin: 0;
+    padding: 0;
 }
