@@ -1,7 +1,7 @@
 $color-primary: #ffec3a;
 $color-secondary: #f7f7f7 ;
-$color-gauche: #c31313;
-$color-droite: #050f8b;
+$color-gauche: #ff5649;
+$color-droite: #1f48f7;
 
 @import url('https://fonts.googleapis.com/css2?family=Gloock&family=PT+Serif&display=swap');
 
@@ -58,18 +58,23 @@ html{
             z-index: 1;
                 &__buttonLangue{
                     padding: 1rem 2rem;
+                    @include border;
+                    box-shadow: 0px 8px 0px 0px rgba(0,0,0,0.1);
+                    background-color: $color-primary
                 }
         }
         &__containerBottom{
             @include bannerColorAndSize($color-primary);
             @include border;
-            justify-content: center;
-            &__img{
-                margin: 0 10px 0 10px;
-                height: 50%;
+            justify-content: space-evenly;
+            &__a{
                 max-height: 100%;
-                max-width: 100%;
+                &__img{
+                    margin: 0 5px 0 5px;
+                    width: 40%;
+                }
             }
+
         }
 }
 
@@ -114,7 +119,9 @@ footer{
     &__button{
         @include font;
         @include border;
-        color: black;
+        color: $color-secondary;
+        text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+        box-shadow: 0px 8px 0px 0px rgba(0,0,0,0.1);
         margin: 25px;
         padding: 2rem 8rem;
         &--left{

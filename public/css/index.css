@@ -29,6 +29,10 @@ html {
 }
 .banner__containerTop__buttonLangue {
   padding: 1rem 2rem;
+  border: solid;
+  border-width: 1px;
+  box-shadow: 0px 8px 0px 0px rgba(0, 0, 0, 0.1);
+  background-color: #ffec3a;
 }
 .banner__containerBottom {
   font-family: "Gloock", serif;
@@ -41,13 +45,14 @@ html {
   align-items: center;
   border: solid;
   border-width: 1px;
-  justify-content: center;
+  justify-content: space-evenly;
 }
-.banner__containerBottom__img {
-  margin: 0 10px 0 10px;
-  height: 50%;
+.banner__containerBottom__a {
   max-height: 100%;
-  max-width: 100%;
+}
+.banner__containerBottom__a__img {
+  margin: 0 5px 0 5px;
+  width: 40%;
 }
 
 section {
@@ -99,15 +104,17 @@ footer {
   font-weight: bold;
   border: solid;
   border-width: 1px;
-  color: black;
+  color: #f7f7f7;
+  text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+  box-shadow: 0px 8px 0px 0px rgba(0, 0, 0, 0.1);
   margin: 25px;
   padding: 2rem 8rem;
 }
 .console__button--left {
-  background-color: #c31313;
+  background-color: #ff5649;
 }
 .console__button--right {
-  background-color: #050f8b;
+  background-color: #1f48f7;
 }
 .console__button--random {
   background-color: #ffec3a;
