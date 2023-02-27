@@ -14,10 +14,12 @@ $color-droite: rgb(7, 7, 192);
 }
 
 @mixin bannerColorAndSize($color){
+    display: flex;
     height: 5rem;
     width: 100%;
     flex-flow: row nowrap;
-    background-color: $color
+    background-color: $color;
+    align-items: center;
 }
 
 html{
@@ -35,15 +37,16 @@ html{
     display: flex;
     flex-flow: column nowrap;
     background-color: $color-primary;
-    align-items: center;
         &__containerTop{
             @include bannerColorAndSize($color-primary);
             justify-content:space-around;
         }
         &__containerBottom{
-            @include bannerColorAndSize($color-secondary);
+            @include bannerColorAndSize(lighten($color-primary,50%));
             justify-content: center;
             &__img{
+                margin: 0 10px 0 10px;
+                height: 50%;
                 max-height: 100%;
                 max-width: 100%;
             }
@@ -67,6 +70,7 @@ footer{
 }
 
 .personnage{
+    align-items: center;
     padding: 5% 0 5% 0;
     background-color: $color-primary;
     border: solid;
@@ -105,7 +109,6 @@ footer{
     height: 100%;
     width: 100px;
     position: absolute;
-    z-index: 1;
     right: 0;
     overflow-x: hidden;
     @include bg($color-primary)

@@ -13,23 +13,28 @@ html {
   display: flex;
   flex-flow: column nowrap;
   background-color: rgba(21, 222, 165, 0.5607843137);
-  align-items: center;
 }
 .banner__containerTop {
+  display: flex;
   height: 5rem;
   width: 100%;
   flex-flow: row nowrap;
   background-color: rgba(21, 222, 165, 0.5607843137);
+  align-items: center;
   justify-content: space-around;
 }
 .banner__containerBottom {
+  display: flex;
   height: 5rem;
   width: 100%;
   flex-flow: row nowrap;
-  background-color: #f7f7f7;
+  background-color: rgba(244, 254, 251, 0.5607843137);
+  align-items: center;
   justify-content: center;
 }
 .banner__containerBottom__img {
+  margin: 0 10px 0 10px;
+  height: 50%;
   max-height: 100%;
   max-width: 100%;
 }
@@ -50,6 +55,7 @@ footer {
 }
 
 .personnage {
+  align-items: center;
   padding: 5% 0 5% 0;
   background-color: rgba(21, 222, 165, 0.5607843137);
   border: solid;
@@ -91,7 +97,6 @@ footer {
   height: 100%;
   width: 100px;
   position: absolute;
-  z-index: 1;
   right: 0;
   overflow-x: hidden;
   background-color: rgba(21, 222, 165, 0.5607843137);
