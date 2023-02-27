@@ -3,6 +3,17 @@ $color-secondary: #e6f9f8 ;
 $color-gauche: rgba(180, 8, 8, 0.797);
 $color-droite: rgb(7, 7, 192);
 
+@mixin block{
+    margin: 10% 0 10% 0 ;
+    grid-column:5/9 ;
+    text-align: center;
+}
+
+@mixin bg($colour){
+    background-color: $colour;
+    box-shadow: 10px 5px 15px -8px darken($colour,50%) inset;
+}
+
 html{
     height: 100%;
     width: 100%;
@@ -15,38 +26,68 @@ html{
 }
 
 header{
+    display: flex;
     background-color: $color-primary;
     flex-flow: row nowrap;
-    justify-content: space-evenly;
+    justify-content: space-around ;
 }
 
 
 section{
     background-color: $color-secondary;
-}
-
-.button{
-    &--left{
-        background-color: $color-gauche;
-    }
-    &--right{
-        background-color: $color-droite;
-    }
-    &--random{
-        background-color: $color-primary;
-    }
-    &--langue{
-        background-color: $color-secondary;
-    }
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
 }
 
 .logo{
-    width: 2%;
-    height: 2%;
+    width: 4rem;
+    height: 4rem;
 }
 
 footer{
     background-color: $color-primary;
-    margin: 0;
-    padding: 0;
 }
+
+.personnage{
+    padding: 5% 0 5% 0;
+    background-color: $color-primary;
+    border: solid;
+}
+
+.stat, .personnage{
+    @include block;
+}
+
+.console{
+    grid-column: 4/10;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    column-gap: 100px;
+    &__button{
+        font-weight: bold;
+        font-size: xx-large;
+        margin: 25px;
+        padding: 2rem 8rem;
+        border-radius: 25px;
+            &--left{
+                @include bg($color-gauche)
+            }
+            &--right{
+                @include bg($color-droite)
+            }
+            &--random{
+                @include bg($color-primary)
+            }
+    }
+}
+
+.sidenav {
+    height: 100%;
+    width: 100px;
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    overflow-x: hidden;
+    @include bg($color-primary)
+  }

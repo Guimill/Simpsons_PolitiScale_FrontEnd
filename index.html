@@ -7,8 +7,8 @@
 	</head>
 
     <header role="banner">
-        <p>Cartoon politics  <img class="logo" src="./public/img/price.png" alt="Logo représentant une étiquette">
-        </p>
+        <p><!-- permet de positionner correctement le banner avec space-around --></p>
+        <h1>Cartoon politics  <img class="logo" src="./public/img/price.png" alt="Logo représentant une étiquette"></h1>
         <div>
             <button class="button--langue">FR</button>
             <button class="button--langue">EN</button>
@@ -16,33 +16,33 @@
     </header>
 
     <body>
+        <nav class="sidenav">
+            <button class="suivant"><img src="" alt=""></button>
+        </nav>
         <section id="personnage">
-            <div id="personnage-cart">
+            <div class="personnage" >
                 <h2>  Simpson Homer  </h2>
-                <img id="personnage-img" src="./public/img/" alt="Image de test">
+                <img src="./public/img/homer.jpg" alt="Image de test">
             </div>
         </section>
 
         <section id="console">
-            <button class="button--random">
-                Personne aléatoire
-            </button>
-            <button class="button--left">
-                Gauche
-            </button>
-            <button class="button--right">
-                Droite
-            </button>
+            <div class="console">
+                <button class="console__button console__button--left">
+                    Gauche
+                </button>
+                <button class="console__button console__button--right">
+                    Droite
+                </button>
+                <button class="console__button console__button--random">
+                    Personnage aléatoire
+                </button>
+            </div>    
         </section>
 
         <section id="statistique">
-            <div id="stat-bar">
-                
-            </div>
-            <div>
-                <button class="button--random" id="suivant">
-                    <img class="logo" src="" alt="">
-                </button>
+            <div class="stat">
+                <div id="stat-bar"></div>
             </div>
         </section>
     </body>
