@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Gloock&family=PT+Serif&display=swap");
 html {
   height: 100%;
   width: 100%;
@@ -15,6 +16,8 @@ html {
   background-color: rgba(21, 222, 165, 0.5607843137);
 }
 .banner__containerTop {
+  font-family: "Gloock", serif;
+  font-size: x-large;
   display: flex;
   height: 5rem;
   width: 100%;
@@ -23,7 +26,12 @@ html {
   align-items: center;
   justify-content: space-around;
 }
+.banner__containerTop__buttonLangue {
+  padding: 1rem 2rem;
+}
 .banner__containerBottom {
+  font-family: "Gloock", serif;
+  font-size: x-large;
   display: flex;
   height: 5rem;
   width: 100%;
@@ -55,7 +63,13 @@ footer {
 }
 
 .personnage {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  font-size: xx-large;
+  font-weight: bold;
+  display: flex;
+  flex-flow: column wrap;
   align-items: center;
+  gap: 25px;
   padding: 5% 0 5% 0;
   background-color: rgba(21, 222, 165, 0.5607843137);
   border: solid;
@@ -77,27 +91,29 @@ footer {
        column-gap: 100px;
 }
 .console__button {
-  font-weight: bold;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
   font-size: xx-large;
+  font-weight: bold;
+  color: #eaeaea;
   margin: 25px;
   padding: 2rem 8rem;
   border-radius: 25px;
 }
 .console__button--left {
-  background-color: rgba(180, 8, 8, 0.797);
+  background-color: #c31313;
 }
 .console__button--right {
-  background-color: rgb(7, 7, 192);
+  background-color: #050f8b;
 }
 .console__button--random {
   background-color: rgba(21, 222, 165, 0.5607843137);
 }
 
-.sidenav {
-  height: 100%;
-  width: 100px;
+.sideButton {
   position: absolute;
-  right: 0;
+  right: 18%;
+  top: 35%;
   overflow-x: hidden;
   background-color: rgba(21, 222, 165, 0.5607843137);
+  padding: 8rem 2rem;
 }/*# sourceMappingURL=index.css.map */

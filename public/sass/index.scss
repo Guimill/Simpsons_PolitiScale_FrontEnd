@@ -1,7 +1,9 @@
 $color-primary: #15dea58f;
 $color-secondary: #f7f7f7 ;
-$color-gauche: rgba(180, 8, 8, 0.797);
-$color-droite: rgb(7, 7, 192);
+$color-gauche: #c31313;
+$color-droite: #050f8b;
+
+@import url('https://fonts.googleapis.com/css2?family=Gloock&family=PT+Serif&display=swap');
 
 @mixin block{
     margin: 10% 0 10% 0 ;
@@ -14,12 +16,20 @@ $color-droite: rgb(7, 7, 192);
 }
 
 @mixin bannerColorAndSize($color){
+    font-family: 'Gloock', serif;
+    font-size: x-large;
     display: flex;
     height: 5rem;
     width: 100%;
     flex-flow: row nowrap;
     background-color: $color;
     align-items: center;
+}
+
+@mixin font{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: xx-large;
+    font-weight: bold;
 }
 
 html{
@@ -40,6 +50,9 @@ html{
         &__containerTop{
             @include bannerColorAndSize($color-primary);
             justify-content:space-around;
+                &__buttonLangue{
+                    padding: 1rem 2rem;
+                }
         }
         &__containerBottom{
             @include bannerColorAndSize(lighten($color-primary,50%));
@@ -70,7 +83,11 @@ footer{
 }
 
 .personnage{
+    @include font;
+    display: flex;
+    flex-flow: column wrap;
     align-items: center;
+    gap: 25px;
     padding: 5% 0 5% 0;
     background-color: $color-primary;
     border: solid;
@@ -88,8 +105,8 @@ footer{
     justify-content: center;
     column-gap: 100px;
     &__button{
-        font-weight: bold;
-        font-size: xx-large;
+        @include font;
+        color:darken($color-secondary,5%);
         margin: 25px;
         padding: 2rem 8rem;
         border-radius: 25px;
@@ -105,11 +122,11 @@ footer{
     }
 }
 
-.sidenav {
-    height: 100%;
-    width: 100px;
+.sideButton {
     position: absolute;
-    right: 0;
+    right: 18%;
+    top: 35%;
     overflow-x: hidden;
-    @include bg($color-primary)
+    background-color: $color-primary;
+    padding: 8rem 2rem;
   }

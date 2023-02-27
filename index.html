@@ -2,17 +2,17 @@
 <html lang="fr">
 	<head>
 		<meta charset="utf-8">
-		<title>Cartoon politics</title>
+		<title>CARTOON POLITICS</title>
 		<link rel="stylesheet" href="./public/css/index.css">
 	</head>
 
     <header class="banner" role="banner">
         <div class="banner__containerTop">
             <p><!-- permet de positionner correctement le banner avec space-around --></p>
-            <h1>Cartoon politics</h1>
+            <h1>CARTOON POLITICS</h1>
             <div>
-                <button class="button--langue">FR</button>
-                <button class="button--langue">EN</button>
+                <button class="banner__containerTop__buttonLangue">FR</button>
+                <button class="banner__containerTop__buttonLangue">EN</button>
             </div>
         </div>
         <div class="banner__containerBottom">
@@ -23,17 +23,16 @@
     </header>
 
     <body>
-        <nav class="sidenav">
-            <button class="suivant"><img src="" alt=""></button>
-        </nav>
-        <section id="personnage">
+        <button class="sideButton"></button>
+
+        <section role="section de présentation du personnage">
             <div class="personnage" >
                 <h2>  Simpson Homer  </h2>
                 <img src="./public/img/homer.jpg" alt="Image de test">
             </div>
         </section>
 
-        <section id="console">
+        <section role="section pour choisir une réponse">
             <div class="console">
                 <button class="console__button console__button--left">
                     Gauche
@@ -47,7 +46,7 @@
             </div>    
         </section>
 
-        <section id="statistique">
+        <section role="section contenant les informations statistique">
             <div class="stat">
                 <div id="stat-bar"></div>
             </div>
