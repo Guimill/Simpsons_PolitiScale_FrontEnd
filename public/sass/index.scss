@@ -1,5 +1,5 @@
 $color-primary: #15dea58f;
-$color-secondary: #e6f9f8 ;
+$color-secondary: #f7f7f7 ;
 $color-gauche: rgba(180, 8, 8, 0.797);
 $color-droite: rgb(7, 7, 192);
 
@@ -11,7 +11,13 @@ $color-droite: rgb(7, 7, 192);
 
 @mixin bg($colour){
     background-color: $colour;
-    box-shadow: 10px 5px 15px -8px darken($colour,50%) inset;
+}
+
+@mixin bannerColorAndSize($color){
+    height: 5rem;
+    width: 100%;
+    flex-flow: row nowrap;
+    background-color: $color
 }
 
 html{
@@ -25,16 +31,28 @@ html{
     padding: 0;
 }
 
-header{
+.banner{
     display: flex;
+    flex-flow: column nowrap;
     background-color: $color-primary;
-    flex-flow: row nowrap;
-    justify-content: space-around ;
+    align-items: center;
+        &__containerTop{
+            @include bannerColorAndSize($color-primary);
+            justify-content:space-around;
+        }
+        &__containerBottom{
+            @include bannerColorAndSize($color-secondary);
+            justify-content: center;
+            &__img{
+                max-height: 100%;
+                max-width: 100%;
+            }
+        }
 }
 
 
 section{
-    background-color: $color-secondary;
+    background-color: darken($color-secondary,5%);
     display: grid;
     grid-template-columns: repeat(12, 1fr);
 }
@@ -52,6 +70,7 @@ footer{
     padding: 5% 0 5% 0;
     background-color: $color-primary;
     border: solid;
+    border-radius: 15px;
 }
 
 .stat, .personnage{

@@ -9,15 +9,33 @@ html {
   padding: 0;
 }
 
-header {
+.banner {
   display: flex;
+  flex-flow: column nowrap;
   background-color: rgba(21, 222, 165, 0.5607843137);
+  align-items: center;
+}
+.banner__containerTop {
+  height: 5rem;
+  width: 100%;
   flex-flow: row nowrap;
+  background-color: rgba(21, 222, 165, 0.5607843137);
   justify-content: space-around;
+}
+.banner__containerBottom {
+  height: 5rem;
+  width: 100%;
+  flex-flow: row nowrap;
+  background-color: #f7f7f7;
+  justify-content: center;
+}
+.banner__containerBottom__img {
+  max-height: 100%;
+  max-width: 100%;
 }
 
 section {
-  background-color: #e6f9f8;
+  background-color: #eaeaea;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
 }
@@ -35,6 +53,7 @@ footer {
   padding: 5% 0 5% 0;
   background-color: rgba(21, 222, 165, 0.5607843137);
   border: solid;
+  border-radius: 15px;
 }
 
 .stat, .personnage {
@@ -60,15 +79,12 @@ footer {
 }
 .console__button--left {
   background-color: rgba(180, 8, 8, 0.797);
-  box-shadow: 10px 5px 15px -8px rgba(0, 0, 0, 0.797) inset;
 }
 .console__button--right {
   background-color: rgb(7, 7, 192);
-  box-shadow: 10px 5px 15px -8px black inset;
 }
 .console__button--random {
   background-color: rgba(21, 222, 165, 0.5607843137);
-  box-shadow: 10px 5px 15px -8px rgba(0, 0, 0, 0.5607843137) inset;
 }
 
 .sidenav {
@@ -79,5 +95,4 @@ footer {
   right: 0;
   overflow-x: hidden;
   background-color: rgba(21, 222, 165, 0.5607843137);
-  box-shadow: 10px 5px 15px -8px rgba(0, 0, 0, 0.5607843137) inset;
 }/*# sourceMappingURL=index.css.map */
