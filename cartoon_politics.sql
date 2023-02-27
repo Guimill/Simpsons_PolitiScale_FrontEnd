@@ -20,13 +20,15 @@ INSERT INTO persona (lname, fname)
 		(Plante, Pirhana)
 		(Calamar, Carlo)
 		(Smith, Morty)
-		(Smith, Rick)S
+		(Smith, Rick)
 		(Brown, Cleveland)
 		(Noceda, Luz)
 		(Pines, Mabel)
 		(Waddles)
 		(Dresseur, Pokemon)
 		(Marie)
+		(scoobidoo)
+		
 
 CREATE TABLE score (
 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
