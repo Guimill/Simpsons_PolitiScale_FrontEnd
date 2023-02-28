@@ -149,39 +149,48 @@ footer{
 }
 
 .console{
-    @include s {
-        grid-column: 2/12;
-    };
     grid-column: 4/10;
     display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
+    flex-flow: column wrap;
     column-gap: 100px;
-    &__button{
-        @include s {
-            display: flex;
-            flex-flow: row wrap;    
-            margin: 5px;
-            padding: 1rem 3rem;
-        };
-        @include font;
-        @include border;
-        color: $color-secondary;
-        text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
-        box-shadow: 0px 8px 0px 0px rgba(0,0,0,0.1);
-        margin: 25px;
-        padding: 2rem 8rem;
-        &--left{
+    &__containerTop{
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        &__button{
+            @include font;
+            @include border;
+            color: $color-secondary;
+            text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+            box-shadow: 0px 8px 0px 0px rgba(0,0,0,0.1);
+            margin: 25px;
+            padding: 2rem 8rem;
+            @include bg($color-primary)
+        }
+    }
+    &__containerBottom{
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        &__button{
+            @include font;
+            @include border;
+            color: $color-secondary;
+            text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+            box-shadow: 0px 8px 0px 0px rgba(0,0,0,0.1);
+            margin: 25px;
+            padding: 2rem 8rem;
+            &--left{
                 @include bg($color-gauche)
             }
             &--right{
                 @include bg($color-droite)
             }
-            &--random{
-                @include bg($color-primary)
-            }
+        }
     }
 }
+
+/* si besoin de rajouter un bouton suivant sur le côté */
 
 .sideButton {
     position: absolute;

@@ -25,8 +25,6 @@
     </header>
 
     <body>
-        <button class="sideButton"></button>
-
         <section role="section de présentation du personnage">
             <div class="personnage" >
                 <h2>  Simpson Homer  </h2>
@@ -36,15 +34,19 @@
 
         <section role="section pour choisir une réponse">
             <div class="console">
-                <button class="console__button console__button--left">
-                    Gauche
-                </button>
-                <button class="console__button console__button--right">
-                    Droite
-                </button>
-                <button class="console__button console__button--random">
-                    Personnage aléatoire
-                </button>
+                <div class="console__containerTop">
+                    <button class="console__containerTop__button">
+                        Personnage aléatoire
+                    </button>
+                </div>
+                <div class="console__containerBottom"> 
+                    <button class="console__containerBottom__button console__containerBottom__button--left">
+                        Gauche
+                    </button>
+                    <button class="console__containerBottom__button console__containerBottom__button--right">
+                        Droite
+                    </button>
+                </div>
             </div>    
         </section>
 
