@@ -35,6 +35,12 @@ html {
   box-shadow: 0px 8px 0px 0px rgba(0, 0, 0, 0.1);
   background-color: #ffec3a;
 }
+.banner__containerTop__buttonLangue:hover {
+  background-color: #edd600;
+}
+.banner__containerTop__buttonLangue:active {
+  box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
 .banner__containerBottom {
   font-family: "Gloock", serif;
   font-size: x-large;
@@ -96,8 +102,7 @@ footer {
   grid-column: 4/10;
   display: flex;
   flex-flow: column wrap;
-  -moz-column-gap: 100px;
-       column-gap: 100px;
+  column-gap: 100px;
 }
 .console__containerTop {
   display: flex;
@@ -116,6 +121,12 @@ footer {
   margin: 25px;
   padding: 2rem 8rem;
   background-color: #ffec3a;
+}
+.console__containerTop__button:hover {
+  background-color: #edd600;
+}
+.console__containerTop__button:active {
+  box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
 }
 .console__containerBottom {
   display: flex;
@@ -137,8 +148,20 @@ footer {
 .console__containerBottom__button--left {
   background-color: #ff5649;
 }
+.console__containerBottom__button--left:hover {
+  background-color: #fc1200;
+}
+.console__containerBottom__button--left:active {
+  box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
 .console__containerBottom__button--right {
   background-color: #1f48f7;
+}
+.console__containerBottom__button--right:hover {
+  background-color: #072bc3;
+}
+.console__containerBottom__button--right:active {
+  box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
 }
 
 /* si besoin de rajouter un bouton suivant sur le côté */

@@ -1,0 +1,215 @@
+$color-primary: #ffec3a;
+$color-secondary: #f7f7f7 ;
+$color-gauche: #ff5649;
+$color-droite: #1f48f7;
+
+@import url('https://fonts.googleapis.com/css2?family=Gloock&family=PT+Serif&display=swap');
+
+@mixin ButtonHoverAndClick($color){
+    &:hover{
+        background-color: darken($color: $color, $amount: 15%);
+    };
+    &:active{
+        box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+    }
+}
+
+@mixin block{
+    margin: 10% 0 10% 0 ;
+    grid-column:5/9 ;
+    text-align: center;
+}
+
+@mixin bg($colour){
+    background-color: $colour;
+}
+
+@mixin border{
+    border: solid;
+    border-width: 1px;
+}
+
+@mixin bannerColorAndSize($color){
+    font-family: 'Gloock', serif;
+    font-size: x-large;
+    display: flex;
+    height: 5rem;
+    width: 100%;
+    flex-flow: row nowrap;
+    background-color: $color;
+    align-items: center;
+}
+
+@mixin font{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+$breakpoints: (
+    xs : 576px,
+    s : 768px,
+    m : 992px,
+    l : 1200px,
+    xl : 1400px,
+);
+
+@mixin xs {
+    @media screen and (max-width: map-get($map: $breakpoints, $key: xs)){
+        @content;
+    }
+}
+
+@mixin s {
+    @media screen and (max-width: map-get($map: $breakpoints, $key: s)){
+        @content;
+    }
+}
+
+@mixin m {
+    @media screen and (max-width: map-get($map: $breakpoints, $key: m)){
+        @content;
+    }
+}
+
+@mixin l {
+    @media screen and (max-width: map-get($map: $breakpoints, $key: l)){
+        @content;
+    }
+}
+
+@mixin xl {
+    @media screen and (max-width: map-get($map: $breakpoints, $key: xl)){
+        @content;
+    }
+}
+
+html{
+    height: 100%;
+    width: 100%;
+}
+  
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.banner{
+    display: flex;
+    flex-flow: column nowrap;
+        &__containerTop{
+            @include bannerColorAndSize($color-secondary);
+            justify-content:space-around;
+            box-shadow: 0px 8px 0px 1px rgba(0,0,0,0.05);
+            z-index: 1;
+                &__buttonLangue{
+                    padding: 1rem 2rem;
+                    @include border;
+                    box-shadow: 0px 8px 0px 0px rgba(0,0,0,0.1);
+                    background-color: $color-primary;
+                    @include ButtonHoverAndClick($color-primary)
+                }
+        }
+        &__containerBottom{
+            @include bannerColorAndSize($color-primary);
+            @include border;
+            justify-content: space-evenly;
+            &__a{
+                max-height: 100%;
+                &__img{
+                    margin: 0 5px 0 5px;
+                    width: 40%;
+                }
+            }
+
+        }
+}
+
+
+section{
+    background-color: $color-secondary;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+}
+
+footer{
+    background-color: $color-primary;
+}
+
+.personnage{
+    @include font;
+    @include border;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    gap: 25px;
+    padding: 5% 0 5% 0;
+    background-color: $color-primary;
+    box-shadow: 0px 14px 0px 1px rgba(0,0,0,0.1);
+    text-shadow: -2px -1px black, 1px 2px black, 2px 1px black, -1px -2px black;
+    color: $color-secondary;
+        &__img{
+            max-width: 100%;
+        }
+}
+
+.stat, .personnage{
+    @include block;
+}
+
+.console{
+    grid-column: 4/10;
+    display: flex;
+    flex-flow: column wrap;
+    column-gap: 100px;
+    &__containerTop{
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        &__button{
+            @include font;
+            @include border;
+            color: $color-secondary;
+            text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+            box-shadow: 0px 8px 0px 0px rgba(0,0,0,0.1);
+            margin: 25px;
+            padding: 2rem 8rem;
+            @include bg($color-primary);
+            @include ButtonHoverAndClick($color-primary)
+            }
+        }
+    &__containerBottom{
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        &__button{
+            @include font;
+            @include border;
+            color: $color-secondary;
+            text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+            box-shadow: 0px 8px 0px 0px rgba(0,0,0,0.1);
+            margin: 25px;
+            padding: 2rem 8rem;
+            &--left{
+                @include bg($color-gauche);
+                @include ButtonHoverAndClick($color-gauche)
+            }
+            &--right{
+                @include bg($color-droite);
+                @include ButtonHoverAndClick($color-droite)
+            }
+        }
+    }
+}
+
+/* si besoin de rajouter un bouton suivant sur le côté */
+
+.sideButton {
+    position: absolute;
+    right: 18%;
+    top: 35%;
+    overflow-x: hidden;
+    background-color: $color-primary;
+    padding: 8rem 2rem;
+  }
