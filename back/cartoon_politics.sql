@@ -1,7 +1,3 @@
-CREATE DATABASE cartoon_politics
-
-USE cartoon_politics
-
 CREATE TABLE persona (
 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	lname VARCHAR(100) NOT NULL,
