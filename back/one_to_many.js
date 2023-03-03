@@ -1,4 +1,4 @@
-const Sequelize = require("sequelize");
+const { Sequelize, DataTypes } = require("sequelize");
 
 const sequelize = new Sequelize(
  'cartoon',
@@ -39,14 +39,14 @@ const Personnage = sequelize.define("personnages", {
     {name : "marie", scoreId: 2}
  ]
 
- Score.hasMany(Student)
+ Score.hasMany(Personnage)
 
 sequelize.sync({ force: true }).then(() => {
-   Grade.bulkCreate(score_data, { validate: true }).then(() => {
-       Student.bulkCreate(personnage_data, { validate: true }).then(() => {
-           Grade.findAll({
+   Score.bulkCreate(score_data, { validate: true }).then(() => {
+       Personnage.bulkCreate(personnage_data, { validate: true }).then(() => {
+           Score.findAll({
                where: {
-                   grade: "gauche"
+                   score: "gauche"
                },
                include: [{
                    model: Personnage
