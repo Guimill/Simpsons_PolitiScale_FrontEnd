@@ -16,24 +16,18 @@ sequelize.authenticate().then(() => {
    console.error('Unable to connect to the database: ', error);
 });
 
-const Personnage = sequelize.define("personnages", {
+const Score = sequelize.define("scores", {
     firstName: {
       type: DataTypes.STRING,
       allowNull: false
-    },
-    lastName: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    politicalId: {
-        type: DataTypes.INTEGER,
-        allowNull : true
     }
  });
 
  sequelize.sync().then(() => {
-    console.log('personnages table created successfully!');
+    console.log('scores table created successfully!');
  }).catch((error) => {
     console.error('Unable to create table : ', error);
  });
+ 
+
  

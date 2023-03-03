@@ -31,9 +31,18 @@ const Personnage = sequelize.define("personnages", {
     }
  });
 
- sequelize.sync().then(() => {
+sequelize.sync().then(() => {
     console.log('personnages table created successfully!');
- }).catch((error) => {
-    console.error('Unable to create table : ', error);
- });
- 
+
+Personnage.create({
+       firestName: "Simpson",
+       lastName: "Homer",
+    }).then(res => {
+       console.log(res)
+    }).catch((error) => {
+       console.error('Failed to create a new record : ', error);
+});
+
+}).catch((error) => {
+   console.error('Unable to create table : ', error);
+});

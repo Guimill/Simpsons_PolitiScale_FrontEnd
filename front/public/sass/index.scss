@@ -95,6 +95,27 @@ html{
     padding: 0;
 }
 
+body{
+    background-image: radial-gradient(
+        circle at center,
+        black 0.1rem,
+        transparent 0
+      ), radial-gradient(circle at center, black 0.1rem, transparent 0);
+    background-size: 1.3rem 1.3rem;
+    background-position: 0 0, 0.65rem 0.65rem;
+    background-color: darken($color: $color-secondary, $amount: 2%);
+    z-index: 0;
+}
+
+section{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+}
+
+footer{
+    background-color: $color-primary;
+}
+
 .banner{
     display: flex;
     flex-flow: column nowrap;
@@ -124,17 +145,6 @@ html{
             }
 
         }
-}
-
-
-section{
-    background-color: $color-secondary;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-}
-
-footer{
-    background-color: $color-primary;
 }
 
 .personnage{
