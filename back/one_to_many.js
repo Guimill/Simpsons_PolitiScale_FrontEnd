@@ -1,45 +1,17 @@
-const { Sequelize, DataTypes } = require("sequelize");
-
-const sequelize = new Sequelize(
- 'cartoon',
- 'root',
- 'Universum555-',
-  {
-    host: 'localhost',
-    dialect: 'mysql'
-  }
-);
-
-sequelize.authenticate().then(() => {
-   console.log('Connection has been established successfully.');
-}).catch((error) => {
-   console.error('Unable to connect to the database: ', error);
-});
-
-const Personnage = sequelize.define("personnages", {
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false
-    }
- });
-
-
- const Score = sequelize.define("scores", {
-    score: {
-      type: DataTypes.STRING,
-      allowNull: false
-    }
- });
+const Personnage = require("./models/personnage.model");
+const Score = require("./models/score.model")
 
  const score_data = [ {score : "gauche"}, {score : "droite"}]
 
  const personnage_data = [
     {name : "Homer Simpson", scoreId: 1},
     {name : "Lisa Simpson", scoreId: 1},
-    {name : "marie", scoreId: 2}
+    {name : "marie", scoreId: 2},
+    {name : "Homer Simpson", scoreId: 2}
  ]
 
- Score.hasMany(Personnage)
+Score.hasMany(Personnage);
+Personnage.belongsTo(Score);
 
 sequelize.sync({ force: true }).then(() => {
    Score.bulkCreate(score_data, { validate: true }).then(() => {
