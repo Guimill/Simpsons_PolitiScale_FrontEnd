@@ -3,6 +3,22 @@ import test from './assets/img/homer.jpg'
 import linkedin from './assets/img/linkedin.svg'
 import github from './assets/img/github.svg'
 import mail from './assets/img/mail.svg'
+import ReactDOM from 'react-dom/client';
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
+// Components
+import Pokemon, { pokemonLoader } from './routes/Pokemon';
+import Root, { rootLoader } from './routes/Root';
+import Error from './routes/Error';
+
+const JSXRouter = createBrowserRouter(
+  createRoutesFromElements(
+    <Route element={<Root />} path='/' loader={rootLoader} errorElement={<Error />}>
+      <Route element={<Pokemon />} loader={pokemonLoader} path='pokemon/:name' />
+    </Route>
+  )
+);
+
+
 
 function App() {
   return (
