@@ -1,1 +1,1 @@
-# Creation d'une web app pour voter qu'elle personnage est de gauche ou de droite
+# Creation d'une web app assignant une note politique aux personnages de cartoon !
