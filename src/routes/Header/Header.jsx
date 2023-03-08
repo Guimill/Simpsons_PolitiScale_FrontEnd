@@ -7,7 +7,7 @@ function Header() {
     return (
         <header class="banner" role="banner">
         <div class="banner__containerTop">
-            <h1>CARTOON POLITICS</h1>
+            <h1>SIMPSONS PolitiScale</h1>
             <p> {/* permet de positionner correctement le banner avec space-around */} </p>
             <p> {/* permet de positionner correctement le banner avec space-around */} </p>
             <p> {/* permet de positionner correctement le banner avec space-around */} </p>
