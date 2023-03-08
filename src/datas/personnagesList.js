@@ -1,34 +1,40 @@
-import homer from '../assets/images/homer.jpg'
-import lisa from '../assets/images/lisa.png'
-import marge from '../assets/images/marge.jpg'
-import bart from '../assets/images/bart.jpg'
-import maggie from '../assets/images/maggie.png'
+import Homer from '../assets/images/Homer.jpg'
+import Lisa from '../assets/images/Lisa.png'
+import Marge from '../assets/images/Marge.jpg'
+import Bart from '../assets/images/Bart.jpg'
+import Maggie from '../assets/images/Maggie.png'
+import Ralph from '../assets/images/Ralph.png'
 
 
 export const personnagesList = [
     {
         id: 1,
         name: 'Homer',
-        src: homer
+        src: Homer
     },
     {
         id: 2,
         name: 'Lisa',
-        src: lisa
+        src: Lisa
     },
     {
         id: 3,
         name: 'Marge',
-        src: marge
+        src: Marge
     },
     {
         id:4,
         name: 'Bart',
-        src: bart
+        src: Bart
     },
     {
         id:5,
         name: 'Maggie',
-        src: maggie
+        src: Maggie
+    },
+    {
+        id:6,
+        name: 'Ralph',
+        src: Ralph
     }
 ]

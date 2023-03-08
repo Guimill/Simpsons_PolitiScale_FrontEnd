@@ -7,6 +7,7 @@ import {
 import './assets/styles/css/index.css'
 import Home from './routes/Home'
 import Error from "./routes/Error";
+import Vote from './routes/Vote'
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
     element: <Home />,
     errorElement: <Error />,
   },
+  {
+    path: ":name",
+    element: <Vote />
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

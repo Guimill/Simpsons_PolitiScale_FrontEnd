@@ -1,4 +1,5 @@
 import { personnagesList } from "../../datas/personnagesList";
+import { Link } from "react-router-dom";
 import Card from "../card";
 import styled from "styled-components";
 
@@ -15,7 +16,9 @@ function ImageGallery() {
     <ImgGallery className="ImageGallery">
       {personnagesList.map(({ id, src, name }) => (
         <div key={id}>
-          <Card name={name} src={src} />
+          <Link to={name}>
+            <Card name={name} src={src} />
+          </Link>
         </div>
       ))}
      </ImgGallery>

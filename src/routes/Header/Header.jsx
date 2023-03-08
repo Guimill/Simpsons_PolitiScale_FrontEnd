@@ -7,12 +7,12 @@ function Header() {
     return (
         <header class="banner" role="banner">
         <div class="banner__containerTop">
-            <h1>SIMPSONS PolitiScale</h1>
+            <a href="/" id='a-tittle'><h1>SIMPSONS PolitiScale</h1></a>
             <p> {/* permet de positionner correctement le banner avec space-around */} </p>
             <p> {/* permet de positionner correctement le banner avec space-around */} </p>
             <p> {/* permet de positionner correctement le banner avec space-around */} </p>
             <div>
-                <a href="index.html"><button class="banner__containerTop__buttonLangue"><h3>FR</h3></button></a>
+                <a href="/"><button class="banner__containerTop__buttonLangue"><h3>FR</h3></button></a>
                 <a href="https://en.duolingo.com/course/fr/en/Learn-French"><button class="banner__containerTop__buttonLangue"><h3>EN</h3></button></a>
             </div>
         </div>

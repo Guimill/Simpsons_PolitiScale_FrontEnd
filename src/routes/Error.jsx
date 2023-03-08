@@ -1,4 +1,4 @@
-import ralph from '../assets/images/ralph.png'
+import Ralph from '../assets/images/Ralph.png'
 import Header from '../routes/Header/Header'
 import Footer from '../routes/Footer/Footer'
 
@@ -8,7 +8,7 @@ function Error() {
             <Header />
                 <section>
                     <h1>Oups 🙈 Cette page n'existe pas</h1>
-                    <img src={ralph} alt="ralph wiggum" />
+                    <img src={Ralph} alt="Ralph wiggum" />
                 </section>
             <Footer />
         </div>
