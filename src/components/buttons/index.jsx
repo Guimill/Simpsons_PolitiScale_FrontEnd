@@ -37,14 +37,14 @@ function Button() {
                         </button>
                     </Link>
                 </div>
-                <div class="console__containerBottom"> 
-                    <button class="console__containerBottom__button console__containerBottom__button--left">
+                <form action="" method="get" class="console__containerBottom"> 
+                    <button name="Gauche" type="Submit" value="Gauche" class="console__containerBottom__button console__containerBottom__button--left">
                         Gauche
                     </button>
-                    <button class="console__containerBottom__button console__containerBottom__button--right">
+                    <button name="Droite" type="Submit" value="Droite" class="console__containerBottom__button console__containerBottom__button--right">
                         Droite
                     </button>
-                </div>
+                </form>
             </div>
     );
   }
