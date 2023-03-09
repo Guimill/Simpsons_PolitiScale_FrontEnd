@@ -1,9 +1,9 @@
-import Homer from '../assets/images/Homer.jpg'
-import Lisa from '../assets/images/Lisa.png'
-import Marge from '../assets/images/Marge.jpg'
-import Bart from '../assets/images/Bart.jpg'
-import Maggie from '../assets/images/Maggie.png'
-import Ralph from '../assets/images/Ralph.png'
+import Homer from '../assets/images/homer.jpg'
+import Lisa from '../assets/images/lisa.png'
+import Marge from '../assets/images/marge.jpg'
+import Bart from '../assets/images/bart.jpg'
+import Maggie from '../assets/images/maggie.png'
+import Ralph from '../assets/images/ralph.png'
 
 
 export const personnagesList = [
