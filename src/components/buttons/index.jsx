@@ -2,6 +2,7 @@ import { personnagesList } from "../../datas/personnagesList";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
+import { useState } from "react";
 
 function Button() {
 
@@ -29,6 +30,8 @@ function Button() {
         const realPersonnageNameSuivant = '/' + personnageNameSuivant
 
     const urlPostName = 'http://localhost:3000/' + urlName
+
+    const [buttonDisabled, setButtonDisabled] = useState(false);
         
           const handleSubmitGauche = (e) => {
             e.preventDefault();
@@ -64,12 +67,14 @@ function Button() {
                 </div>
                     <div class="console__containerBottom"> 
                         <form onSubmit={handleSubmitGauche}>
-                            <button name="Gauche" type="Submit" value={realUrlName} class="console__containerBottom__button console__containerBottom__button--left">
+                            <button name="Gauche" type="submit" value={realUrlName} disabled={buttonDisabled} onClick={() => setButtonDisabled(true)}
+                                class="console__containerBottom__button console__containerBottom__button--left">
                                 Gauche
                             </button>
                         </form>
                         <form onSubmit={handleSubmitDroite}>
-                            <button  name="Droite" type="Submit" value={realUrlName} class="console__containerBottom__button console__containerBottom__button--right">
+                            <button  name="Droite" type="submit" value={realUrlName} disabled={buttonDisabled} onClick={() => setButtonDisabled(true)}
+                                class="console__containerBottom__button console__containerBottom__button--right">
                                 Droite
                             </button>
                         </form>
