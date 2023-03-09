@@ -1,6 +1,7 @@
 import { personnagesList } from "../../datas/personnagesList";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import axios from "axios";
 
 function Button() {
 
@@ -27,6 +28,30 @@ function Button() {
 
         const realPersonnageNameSuivant = '/' + personnageNameSuivant
 
+    const urlPostName = 'http://localhost:3000/' + urlName
+        
+          const handleSubmitGauche = (e) => {
+            e.preventDefault();
+            const userData = {
+              name: realUrlName,
+              vote: "Gauche"
+            };
+            axios.post({urlPostName}, userData).then((response) => {
+              console.log(response.status);
+            });
+          };
+
+          const handleSubmitDroite = (e) => {
+            e.preventDefault();
+            const userData = {
+              name: realUrlName,
+              vote: "Droite"
+            };
+            axios.post({urlPostName}, userData).then((response) => {
+              console.log(response.status);
+            });
+          };
+
 
     return (
             <div class="console">
@@ -37,15 +62,19 @@ function Button() {
                         </button>
                     </Link>
                 </div>
-                <form action="../../personnageData" method="post" class="console__containerBottom"> 
-                    <button name="Gauche" type="Submit" value={realUrlName} class="console__containerBottom__button console__containerBottom__button--left">
-                        Gauche
-                    </button>
-                    <button name="Droite" type="Submit" value={realUrlName} class="console__containerBottom__button console__containerBottom__button--right">
-                        Droite
-                    </button>
-                </form>
-            </div>
+                    <div class="console__containerBottom"> 
+                        <form onSubmit={handleSubmitGauche}>
+                            <button name="Gauche" type="Submit" value={realUrlName} class="console__containerBottom__button console__containerBottom__button--left">
+                                Gauche
+                            </button>
+                        </form>
+                        <form onSubmit={handleSubmitDroite}>
+                            <button  name="Droite" type="Submit" value={realUrlName} class="console__containerBottom__button console__containerBottom__button--right">
+                                Droite
+                            </button>
+                        </form>
+                    </div>
+                </div>
     );
   }
 
