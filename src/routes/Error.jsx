@@ -1,4 +1,4 @@
-import Ralph from '../assets/images/Ralph.png'
+import Ralph from '../assets/images/ralph.png'
 import Header from '../routes/Header/Header'
 import Footer from '../routes/Footer/Footer'
 
