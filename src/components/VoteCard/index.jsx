@@ -2,6 +2,7 @@ import { useLocation } from 'react-router-dom';
 import { personnagesList } from '../../datas/personnagesList';
 import Card from '../card';
 
+
 function PersonnageCard() {
 
     let location = useLocation();
@@ -20,7 +21,7 @@ function PersonnageCard() {
     })
 
     return(
-         <div>
+         <div class="votingCard">
             <Card name={PersonnageName} src={PersonnageSrc} />
          </div>
     )
