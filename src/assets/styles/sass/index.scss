@@ -160,6 +160,10 @@ footer{
     animation: progressAnimation 6s;
   }
 
+  @keyframes progressAnimation {
+    0%   { width: 5%; background-color: #F9BCCA;}
+    100% { width: 85%; background-color: #EF476F; }
+  }
 
 .banner{
     display: flex;

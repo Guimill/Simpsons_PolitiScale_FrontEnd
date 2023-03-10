@@ -29,7 +29,7 @@ function Button() {
 
         const realPersonnageNameSuivant = '/' + personnageNameSuivant
 
-    const urlPostName = 'http://localhost:3000/' + urlName
+    const urlPostName = 'http://localhost:3000' + urlName
 
     const [buttonDisabled, setButtonDisabled] = useState(false);
         
