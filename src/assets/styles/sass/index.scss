@@ -16,6 +16,12 @@ $background: #2c303a;
     }
 }
 
+@mixin displayCenter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 @mixin block{
     margin: 10% 0 10% 0 ;
     grid-column:5/9 ;
@@ -46,6 +52,15 @@ $background: #2c303a;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: xx-large;
     font-weight: bold;
+}
+
+@mixin boutonLike{
+    @include font;
+    @include border;
+    color: $color-secondary;
+    text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+    box-shadow: 0px 8px 0px 0px rgba(0,0,0,0.1);
+    margin: 25px;
 }
 
 $breakpoints: (
@@ -181,10 +196,29 @@ footer{
         }
 }
 
+.statistics{
+    @include displayCenter();
+    margin-bottom : 50px;
+        &__statBox{
+            color: $color-secondary;
+            display: flex;
+            justify-content: space-between;
+            &--gauche{
+                @include boutonLike;
+                background-color: $color-gauche;
+                padding : 1rem 4rem;
+            };
+            &--droite{
+                @include boutonLike;
+                background-color: $color-droite;
+                padding : 1rem 4rem;
+            }
+    }
+}
+
+
 .votingCard{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include displayCenter();
     &>div{
         height: 60%;
         width: 20%;
@@ -222,12 +256,7 @@ footer{
         flex-flow: row nowrap;
         justify-content: center;
         &__button{
-            @include font;
-            @include border;
-            color: $color-secondary;
-            text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
-            box-shadow: 0px 8px 0px 0px rgba(0,0,0,0.1);
-            margin: 25px;
+            @include boutonLike;
             padding: 2rem 8rem;
             @include bg($color-primary);
             @include ButtonHoverAndClick($color-primary)
@@ -238,12 +267,7 @@ footer{
         flex-flow: row nowrap;
         justify-content: center;
         &__button{
-            @include font;
-            @include border;
-            color: $color-secondary;
-            text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
-            box-shadow: 0px 8px 0px 0px rgba(0,0,0,0.1);
-            margin: 50px;
+            @include boutonLike;
             padding: 2rem 8rem;
             &--left{
                 @include bg($color-gauche);

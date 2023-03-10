@@ -106,6 +106,44 @@ footer {
   width: 40%;
 }
 
+.statistics {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+.statistics__statBox {
+  color: #f7f7f7;
+  display: flex;
+  justify-content: space-between;
+}
+.statistics__statBox--gauche {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  font-size: xx-large;
+  font-weight: bold;
+  border: solid;
+  border-width: 1px;
+  color: #f7f7f7;
+  text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+  box-shadow: 0px 8px 0px 0px rgba(0, 0, 0, 0.1);
+  margin: 25px;
+  background-color: #ff5649;
+  padding: 1rem 4rem;
+}
+.statistics__statBox--droite {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  font-size: xx-large;
+  font-weight: bold;
+  border: solid;
+  border-width: 1px;
+  color: #f7f7f7;
+  text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+  box-shadow: 0px 8px 0px 0px rgba(0, 0, 0, 0.1);
+  margin: 25px;
+  background-color: #1f48f7;
+  padding: 1rem 4rem;
+}
+
 .votingCard {
   display: flex;
   align-items: center;
@@ -186,7 +224,7 @@ footer {
   color: #f7f7f7;
   text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
   box-shadow: 0px 8px 0px 0px rgba(0, 0, 0, 0.1);
-  margin: 50px;
+  margin: 25px;
   padding: 2rem 8rem;
 }
 .console__containerBottom__button--left {

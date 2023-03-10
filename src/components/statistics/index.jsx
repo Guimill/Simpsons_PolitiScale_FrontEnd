@@ -1,27 +1,5 @@
-import { useLocation } from "react-router-dom";
-import axios from "axios";
-import { useState, useEffect } from "react";
 
-function Statistics() {
-
-    let location = useLocation();
-    const urlName = location.pathname;
-    const urlPostName = 'http://localhost:3000' + urlName;
-
-    const [data, setData] = useState(null);
-
-    useEffect(() => {
-        axios.get(urlPostName).then((response) => {
-            const total = response.data.length;
-            let vote = response.data.filter(function (vote) {
-                return vote.vote === "Gauche"
-              });
-            let voteLength = vote.length;
-            let result = ( voteLength / total ) * 100;
-            setData(result);
-            console.log(result)
-        });
-      }, []);
+function Statistics({ hidden, setHidden, data, setData}) {
 
     const progressbar = document.querySelector(".progress");
 
@@ -33,13 +11,22 @@ function Statistics() {
     setTimeout(() => changeProgress(65), 1000);
     setTimeout(() => changeProgress(data), 1600);
 
-
-
-
     return (
-        <div class="progress-container">
-            <div class="progress"></div>
-        </div>
+        <div>
+            {!hidden ? <div>
+                <div class="statistics">
+                    <div class="progress-container">
+                        <div class="progress"></div>
+                    </div>
+                </div>
+                <div class="statistics">
+                    <div class="statistics__statBox">
+                        <div class="statistics__statBox--gauche">{Math.round(data)}%</div>
+                        <div class="statistics__statBox--droite">{Math.round(100 -data)}%</div>
+                    </div>
+                </div>
+            </div> : null}
+        </div>  
     );
   }
 

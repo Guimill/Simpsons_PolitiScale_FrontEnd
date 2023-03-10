@@ -2,9 +2,9 @@ import { personnagesList } from "../../datas/personnagesList";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-function Button() {
+function Button({ hidden, setHidden, data, setData}) {
 
     let location = useLocation();
     const urlName = location.pathname;
@@ -33,7 +33,7 @@ function Button() {
 
     const [buttonDisabled, setButtonDisabled] = useState(false);
         
-          const handleSubmitGauche = (e) => {
+          const handleSubmitGauchePost = (e) => {
             e.preventDefault();
             const userData = {
               name: realUrlName,
@@ -44,7 +44,7 @@ function Button() {
             });
           };
 
-          const handleSubmitDroite = (e) => {
+          const handleSubmitDroitePost = (e) => {
             e.preventDefault();
             const userData = {
               name: realUrlName,
@@ -55,25 +55,42 @@ function Button() {
             });
           };
 
+          const update = () => {
+            axios.get(urlPostName).then((response) => {
+                const total = response.data.length;
+                let vote = response.data.filter(function (vote) {
+                    return vote.vote === "Gauche"
+                  });
+                let voteLength = vote.length;
+                let result = ( voteLength / total ) * 100;
+                setData(result);
+                console.log(result);
+            });
+          };
 
+          useEffect(update, []);
+
+          
     return (
             <div class="console">
                 <div class="console__containerTop">
-                      <Link to={realPersonnageNameSuivant} onClick={() => setButtonDisabled(false)} >
-                          <button class="console__containerTop__button" >
+                      <Link to={realPersonnageNameSuivant} onClick={() =>{ setButtonDisabled(false); setHidden(true)}}>
+                          <button class="console__containerTop__button">
                             Personnage Suivant
                           </button>
                       </Link>
                 </div>
                     <div class="console__containerBottom"> 
-                        <form onSubmit={handleSubmitGauche}>
-                            <button name="Gauche" type="submit" value={realUrlName} disabled={buttonDisabled} onClick={() => setButtonDisabled(true)}
+                        <form onSubmit={handleSubmitGauchePost}>
+                            <button name="Gauche" type="submit" value={realUrlName} disabled={buttonDisabled}
+                            onClick={() => { setButtonDisabled(true); setHidden(false); update()}}
                                 class="console__containerBottom__button console__containerBottom__button--left">
                                 Gauche
                             </button>
                         </form>
-                        <form onSubmit={handleSubmitDroite}>
-                            <button  name="Droite" type="submit" value={realUrlName} disabled={buttonDisabled} onClick={() => setButtonDisabled(true)}
+                        <form onSubmit={handleSubmitDroitePost}>
+                            <button  name="Droite" type="submit" value={realUrlName} disabled={buttonDisabled}
+                            onClick={() => { setButtonDisabled(true); setHidden(false); update()}}
                                 class="console__containerBottom__button console__containerBottom__button--right">
                                 Droite
                             </button>
