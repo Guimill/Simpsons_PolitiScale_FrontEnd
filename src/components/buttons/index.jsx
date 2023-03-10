@@ -59,11 +59,11 @@ function Button() {
     return (
             <div class="console">
                 <div class="console__containerTop">
-                    <Link to={realPersonnageNameSuivant}>
-                        <button class="console__containerTop__button">
-                          Personnage Suivant
-                        </button>
-                    </Link>
+                      <Link to={realPersonnageNameSuivant} onClick={() => setButtonDisabled(false)} >
+                          <button class="console__containerTop__button" >
+                            Personnage Suivant
+                          </button>
+                      </Link>
                 </div>
                     <div class="console__containerBottom"> 
                         <form onSubmit={handleSubmitGauche}>
