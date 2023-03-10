@@ -23,12 +23,23 @@ function Statistics() {
         });
       }, []);
 
+    const progressbar = document.querySelector(".progress");
+
+    const changeProgress = (progress) => {
+    progressbar.style.width = `${progress}%`;
+    };
+
+    setTimeout(() => changeProgress(22), 500);
+    setTimeout(() => changeProgress(65), 1000);
+    setTimeout(() => changeProgress(data), 1600);
+
+
 
 
     return (
-            <div>qqch
-                <li>{data}</li>
-            </div>
+        <div class="progress-container">
+            <div class="progress"></div>
+        </div>
     );
   }
 

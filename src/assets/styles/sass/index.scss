@@ -130,40 +130,25 @@ footer{
     background-color: $color-primary;
 }
 
-.container {
-    margin: 100px auto;
-    width: 500px;
-    text-align: center;
-  }
 
-  .progress2 {
-    padding: 0px;
-    border-radius: 10px;
-    background: lighten($color: $color-droite, $amount: 0.3);  
-    background-image: 
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
+.progress-container {
+    height: 0.8rem;
+    width: 32rem;
+    border-radius: 0.4rem;
+  
+    background: lighten($color: $color-droite, $amount: 0.2);
   }
   
-  .progress-bar2 {
-    height: 40px;
-    border-radius: 10px;
-    background-image: 
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
-    transition: 0.4s linear;  
-    transition-property: width, background-color;    
+  .progress-container .progress {
+    height: 100%;
+    width: 0;
+    border-radius: 0.4rem;
+  
+    background: lighten($color: $color-gauche, $amount: 0.2);
+  
+    transition: width 0.4s ease-out;
   }
   
-  .progress-moved .progress-bar2 {
-    width: 85%; 
-    background-color: $color-gauche;  
-    animation: progressAnimation 6s;
-  }
-
-  @keyframes progressAnimation {
-    0%   { width: 5%; background-color: #F9BCCA;}
-    100% { width: 85%; background-color: #EF476F; }
-  }
 
 .banner{
     display: flex;
