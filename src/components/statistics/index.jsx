@@ -1,5 +1,5 @@
 
-function Statistics({ hidden, setHidden, data, setData}) {
+function Statistics({ hidden, setHidden, data, setData, total, setTotal}) {
 
     const progressbar = document.querySelector(".progress");
 
@@ -20,6 +20,7 @@ function Statistics({ hidden, setHidden, data, setData}) {
                 <div class="statistics">
                     <div class="statistics__statBox">
                         <div class="statistics__statBox--gauche">{Math.round(data)}%</div>
+                        <div class="statistics__statBox--nombreDeVote">{total} Votes</div>
                         <div class="statistics__statBox--droite">{Math.round(100 -data)}%</div>
                     </div>
                 </div>

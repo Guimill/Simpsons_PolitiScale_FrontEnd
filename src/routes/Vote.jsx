@@ -8,6 +8,7 @@ import { useState } from "react"
 function Vote() {
     const [hidden, setHidden] = useState(true);
     const [data, setData] = useState(null);
+    const [total, setTotal] = useState(null);
 
 
 
@@ -15,8 +16,8 @@ function Vote() {
         <div>
             <Header />
                 <PersonnageCard />
-                <Statistics hidden={hidden} setHidden={setHidden} data={data} setData={setData} />
-                <Button hidden={hidden} setHidden={setHidden} data={data} setData={setData}/>
+                <Statistics hidden={hidden} setHidden={setHidden} data={data} setData={setData} total={total} setTotal={setTotal} />
+                <Button hidden={hidden} setHidden={setHidden} data={data} setData={setData} total={total} setTotal={setTotal}/>
             <Footer />
         </div>
     )

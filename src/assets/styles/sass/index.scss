@@ -213,6 +213,11 @@ footer{
                 background-color: $color-droite;
                 padding : 1rem 4rem;
             }
+            &--nombreDeVote{
+                @include boutonLike;
+                background-color: $color-primary;
+                padding : 1rem 4rem;
+            }
     }
 }
 
@@ -280,17 +285,6 @@ footer{
         }
     }
 }
-
-/* si besoin de rajouter un bouton suivant sur le côté */
-
-.sideButton {
-    position: absolute;
-    right: 18%;
-    top: 35%;
-    overflow-x: hidden;
-    background-color: $color-primary;
-    padding: 8rem 2rem;
-  }
 
   #a-tittle:link{
     color: black;

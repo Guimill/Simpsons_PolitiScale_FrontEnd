@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-function Button({ hidden, setHidden, data, setData}) {
+function Button({ hidden, setHidden, data, setData, total, setTotal}) {
 
     let location = useLocation();
     const urlName = location.pathname;
@@ -58,6 +58,7 @@ function Button({ hidden, setHidden, data, setData}) {
           const update = () => {
             axios.get(urlPostName).then((response) => {
                 const total = response.data.length;
+                setTotal(total);
                 let vote = response.data.filter(function (vote) {
                     return vote.vote === "Gauche"
                   });
@@ -70,7 +71,7 @@ function Button({ hidden, setHidden, data, setData}) {
 
           useEffect(update, []);
 
-          
+
     return (
             <div class="console">
                 <div class="console__containerTop">
