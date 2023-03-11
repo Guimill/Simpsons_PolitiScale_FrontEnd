@@ -5,7 +5,7 @@ import linkedin from '../../assets/images/linkedin.svg'
 
 function Header() {
     return (
-        <header class="banner" role="banner">
+        <header class="banner" role="banner" style={{minWidth: "100%"}}>
         <div class="banner__containerTop">
             <a href="/" id='a-tittle'><h1>SIMPSONS PolitiScale</h1></a>
             <p> {/* permet de positionner correctement le banner avec space-around */} </p>

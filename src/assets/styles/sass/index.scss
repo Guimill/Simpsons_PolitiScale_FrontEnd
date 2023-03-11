@@ -39,7 +39,7 @@ $background: #2c303a;
 
 @mixin bannerColorAndSize($color){
     font-family: 'Gloock', serif;
-    font-size: x-large;
+    font-size: 2vw;
     display: flex;
     height: 5rem;
     width: 100%;
@@ -50,8 +50,9 @@ $background: #2c303a;
 
 @mixin font{
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: xx-large;
+    font-size: 3vw;
     font-weight: bold;
+    padding-bottom: 4vw;
 }
 
 @mixin boutonLike{
@@ -60,7 +61,7 @@ $background: #2c303a;
     color: $color-secondary;
     text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
     box-shadow: 0px 8px 0px 0px rgba(0,0,0,0.1);
-    margin: 25px;
+    margin: 10px;
 }
 
 $breakpoints: (
@@ -107,7 +108,6 @@ html{
 }
   
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
@@ -123,8 +123,8 @@ html{
 }
 
 body{
-    max-width: 100%;
-    max-height: 100%;
+    min-width: 100%;
+    min-height: 100%;
     background-image: radial-gradient(
         circle at center,
         black 0.1rem,
@@ -136,19 +136,14 @@ body{
     z-index: 0;
 }
 
-section{
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-}
-
 footer{
     background-color: $color-primary;
 }
 
 
 .progress-container {
-    height: 2rem;
-    width: 32rem;
+    height: 5vh;
+    width: 50vw;
     border-radius: 1rem;
   
     background: lighten($color: $color-droite, $amount: 0.2);
@@ -174,7 +169,7 @@ footer{
             box-shadow: 0px 8px 0px 1px rgba(0,0,0,0.05);
             z-index: 1;
                 &__buttonLangue{
-                    padding: 1rem 2rem;
+                    padding: 2vh 2vw;
                     @include border;
                     box-shadow: 0px 8px 0px 0px rgba(0,0,0,0.1);
                     background-color: $color-primary;
@@ -206,17 +201,17 @@ footer{
             &--gauche{
                 @include boutonLike;
                 background-color: $color-gauche;
-                padding : 1rem 4rem;
+                padding : 2vh 2vw;
             };
             &--droite{
                 @include boutonLike;
                 background-color: $color-droite;
-                padding : 1rem 4rem;
+                padding : 2vh 2vw;
             }
             &--nombreDeVote{
                 @include boutonLike;
                 background-color: $color-primary;
-                padding : 1rem 4rem;
+                padding : 2vh 2vw;
             }
     }
 }
@@ -242,7 +237,7 @@ footer{
         &__img{
             padding-top: 10px;
             max-width: 100%;
-            max-height: 75%
+            max-height: 75%;
         }
 }
 
@@ -251,18 +246,16 @@ footer{
 }
 
 .console{
-    height: 30%;
-    grid-column: 4/10;
     display: flex;
     flex-flow: column wrap;
-    column-gap: 100px;
+    column-gap: 5%;
     &__containerTop{
         display: flex;
         flex-flow: row nowrap;
         justify-content: center;
         &__button{
             @include boutonLike;
-            padding: 2rem 8rem;
+            padding: 2vh 8vw;
             @include bg($color-primary);
             @include ButtonHoverAndClick($color-primary)
             }
@@ -273,7 +266,7 @@ footer{
         justify-content: center;
         &__button{
             @include boutonLike;
-            padding: 2rem 8rem;
+            padding: 2vh 8vw;
             &--left{
                 @include bg($color-gauche);
                 @include ButtonHoverAndClick($color-gauche)

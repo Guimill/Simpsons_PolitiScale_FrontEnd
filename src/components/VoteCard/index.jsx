@@ -22,7 +22,7 @@ function PersonnageCard() {
 
     return(
          <div class="votingCard">
-            <Card name={PersonnageName} src={PersonnageSrc} />
+            <Card name={PersonnageName} src={PersonnageSrc}/>
          </div>
     )
 }

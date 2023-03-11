@@ -5,7 +5,6 @@ html {
 }
 
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -21,8 +20,8 @@ html {
 }
 
 body {
-  max-width: 100%;
-  max-height: 100%;
+  min-width: 100%;
+  min-height: 100%;
   background-image: radial-gradient(circle at center, black 0.1rem, transparent 0), radial-gradient(circle at center, black 0.1rem, transparent 0);
   background-size: 1.3rem 1.3rem;
   background-position: 0 0, 0.65rem 0.65rem;
@@ -30,18 +29,13 @@ body {
   z-index: 0;
 }
 
-section {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-}
-
 footer {
   background-color: #ffec3a;
 }
 
 .progress-container {
-  height: 2rem;
-  width: 32rem;
+  height: 5vh;
+  width: 50vw;
   border-radius: 1rem;
   background: #2049f7;
 }
@@ -60,7 +54,7 @@ footer {
 }
 .banner__containerTop {
   font-family: "Gloock", serif;
-  font-size: x-large;
+  font-size: 2vw;
   display: flex;
   height: 5rem;
   width: 100%;
@@ -72,7 +66,7 @@ footer {
   z-index: 1;
 }
 .banner__containerTop__buttonLangue {
-  padding: 1rem 2rem;
+  padding: 2vh 2vw;
   border: solid;
   border-width: 1px;
   box-shadow: 0px 8px 0px 0px rgba(0, 0, 0, 0.1);
@@ -86,7 +80,7 @@ footer {
 }
 .banner__containerBottom {
   font-family: "Gloock", serif;
-  font-size: x-large;
+  font-size: 2vw;
   display: flex;
   height: 5rem;
   width: 100%;
@@ -118,42 +112,45 @@ footer {
 }
 .statistics__statBox--gauche {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
-  font-size: xx-large;
+  font-size: 3vw;
   font-weight: bold;
+  padding-bottom: 4vw;
   border: solid;
   border-width: 1px;
   color: #f7f7f7;
   text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
   box-shadow: 0px 8px 0px 0px rgba(0, 0, 0, 0.1);
-  margin: 25px;
+  margin: 10px;
   background-color: #ff5649;
-  padding: 1rem 4rem;
+  padding: 2vh 2vw;
 }
 .statistics__statBox--droite {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
-  font-size: xx-large;
+  font-size: 3vw;
   font-weight: bold;
+  padding-bottom: 4vw;
   border: solid;
   border-width: 1px;
   color: #f7f7f7;
   text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
   box-shadow: 0px 8px 0px 0px rgba(0, 0, 0, 0.1);
-  margin: 25px;
+  margin: 10px;
   background-color: #1f48f7;
-  padding: 1rem 4rem;
+  padding: 2vh 2vw;
 }
 .statistics__statBox--nombreDeVote {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
-  font-size: xx-large;
+  font-size: 3vw;
   font-weight: bold;
+  padding-bottom: 4vw;
   border: solid;
   border-width: 1px;
   color: #f7f7f7;
   text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
   box-shadow: 0px 8px 0px 0px rgba(0, 0, 0, 0.1);
-  margin: 25px;
+  margin: 10px;
   background-color: #ffec3a;
-  padding: 1rem 4rem;
+  padding: 2vh 2vw;
 }
 
 .votingCard {
@@ -170,8 +167,9 @@ footer {
   height: 300px;
   width: 300px;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
-  font-size: xx-large;
+  font-size: 3vw;
   font-weight: bold;
+  padding-bottom: 4vw;
   border: solid;
   border-width: 1px;
   background-color: #ffec3a;
@@ -192,11 +190,9 @@ footer {
 }
 
 .console {
-  height: 30%;
-  grid-column: 4/10;
   display: flex;
   flex-flow: column wrap;
-  column-gap: 100px;
+  column-gap: 5%;
 }
 .console__containerTop {
   display: flex;
@@ -205,15 +201,16 @@ footer {
 }
 .console__containerTop__button {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
-  font-size: xx-large;
+  font-size: 3vw;
   font-weight: bold;
+  padding-bottom: 4vw;
   border: solid;
   border-width: 1px;
   color: #f7f7f7;
   text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
   box-shadow: 0px 8px 0px 0px rgba(0, 0, 0, 0.1);
-  margin: 25px;
-  padding: 2rem 8rem;
+  margin: 10px;
+  padding: 2vh 8vw;
   background-color: #ffec3a;
 }
 .console__containerTop__button:hover {
@@ -229,15 +226,16 @@ footer {
 }
 .console__containerBottom__button {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
-  font-size: xx-large;
+  font-size: 3vw;
   font-weight: bold;
+  padding-bottom: 4vw;
   border: solid;
   border-width: 1px;
   color: #f7f7f7;
   text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
   box-shadow: 0px 8px 0px 0px rgba(0, 0, 0, 0.1);
-  margin: 25px;
-  padding: 2rem 8rem;
+  margin: 10px;
+  padding: 2vh 8vw;
 }
 .console__containerBottom__button--left {
   background-color: #ff5649;

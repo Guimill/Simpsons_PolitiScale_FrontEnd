@@ -3,9 +3,13 @@ import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { useScrollBy } from "react-use-window-scroll";
+import { useRef } from "react";
 
 function Button({ hidden, setHidden, data, setData, total, setTotal}) {
 
+  const scrollBy = useScrollBy();
+  
     let location = useLocation();
     const urlName = location.pathname;
     const realUrlName = urlName.substring(1);
@@ -71,11 +75,13 @@ function Button({ hidden, setHidden, data, setData, total, setTotal}) {
 
           useEffect(update, []);
 
+          
+
 
     return (
             <div class="console">
                 <div class="console__containerTop">
-                      <Link to={realPersonnageNameSuivant} onClick={() =>{ setButtonDisabled(false); setHidden(true)}}>
+                      <Link to={realPersonnageNameSuivant} onClick={() =>{ setButtonDisabled(false); setHidden(true); scrollBy(-500, 0)}}>
                           <button class="console__containerTop__button">
                             Personnage Suivant
                           </button>

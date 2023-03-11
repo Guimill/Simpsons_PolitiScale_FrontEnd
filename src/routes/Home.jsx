@@ -6,7 +6,7 @@ function Home() {
   return (
     <div>
       <Header />
-        <ImageGallery />
+         <ImageGallery />
       <Footer />
     </div>
   );
