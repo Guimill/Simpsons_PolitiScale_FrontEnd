@@ -226,8 +226,8 @@ footer{
 }
 
 .personnage{
-    height: 300px;
-    width: 300px;
+    height: 25vh;
+    width: 15vw;
     @include font;
     @include border;
     background-color: $color-primary;

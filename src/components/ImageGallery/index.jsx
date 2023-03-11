@@ -8,7 +8,7 @@ display: grid;
 grid-template-columns: repeat(3, 1fr);
 grid-gap: 10px;
 grid-auto-rows: minmax(100px, auto);
-padding-left: 10em;
+padding-left: 15vw;
 `
 
 function ImageGallery() {
