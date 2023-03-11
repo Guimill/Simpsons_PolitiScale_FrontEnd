@@ -1,7 +1,7 @@
 import Homer from '../assets/images/homer.jpg'
 import Lisa from '../assets/images/lisa.png'
 import Marge from '../assets/images/marge.jpg'
-import Bart from '../assets/images/bart.jpg'
+import Bart from '../assets/images/bart.png'
 import Maggie from '../assets/images/maggie.png'
 import Ralph from '../assets/images/ralph.png'
 

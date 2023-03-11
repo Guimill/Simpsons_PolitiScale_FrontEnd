@@ -7,9 +7,7 @@ function Statistics({ hidden, setHidden, data, setData}) {
     progressbar.style.width = `${progress}%`;
     };
 
-    setTimeout(() => changeProgress(22), 500);
-    setTimeout(() => changeProgress(65), 1000);
-    setTimeout(() => changeProgress(data), 1600);
+    setTimeout(() => changeProgress(data), 600);
 
     return (
         <div>
