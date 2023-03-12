@@ -1,3 +1,5 @@
+import StatBox from "../statBox/index";
+
 
 function Statistics({ hidden, setHidden, data, setData, total, setTotal}) {
 
@@ -14,15 +16,12 @@ function Statistics({ hidden, setHidden, data, setData, total, setTotal}) {
             {!hidden ? <div>
                 <div class="statistics">
                     <div class="progress-container">
-                        <div class="progress"></div>
+                        <div id="percent-loaded" role="progressbar" aria-valuenow={data}
+                            aria-valuemin="0" aria-valuemax="100"  class="progress"></div>
                     </div>
                 </div>
-                <div class="statistics">
-                    <div class="statistics__statBox">
-                        <div class="statistics__statBox--gauche">{Math.round(data)}%</div>
-                        <div class="statistics__statBox--nombreDeVote">{total} Votes</div>
-                        <div class="statistics__statBox--droite">{Math.round(100 -data)}%</div>
-                    </div>
+                <div>
+                    <StatBox data={data} total={total}/>
                 </div>
             </div> : null}
         </div>  

@@ -13,15 +13,18 @@ padding-left: 15vw;
 
 function ImageGallery() {
   return (
+    <div>
+    <Link id="bilan" to="/Bilan" ><h1>Bilan</h1></Link>
     <ImgGallery className="ImageGallery">
       {personnagesList.map(({ id, src, name }) => (
         <div key={id}>
-          <Link to={name}>
+          <Link to={"Vote/" + name}>
             <Card name={name} src={src} />
           </Link>
         </div>
       ))}
      </ImgGallery>
+     </div>
   );
 }
 

@@ -3,11 +3,11 @@ import { personnagesList } from '../../datas/personnagesList';
 import Card from '../card';
 
 
-function PersonnageCard() {
+function PersonnageCard({focus1}) {
 
     let location = useLocation();
     const UrlName = location.pathname;
-    const realUrlName = UrlName.substring(1);
+    const realUrlName = UrlName.substring(6);
     let PersonnageData = personnagesList.filter(function (personnage) {
         return personnage.name === realUrlName
       });
