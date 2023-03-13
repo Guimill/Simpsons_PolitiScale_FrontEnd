@@ -1,7 +1,7 @@
-import PersonnageCard from "../components/voteCard"
 import Button from "../components/buttons"
 import Footer from "./Footer/Footer"
 import Header from "./Header/Header"
+import PersonnageCard from "../components/voteCard"
 import Statistics from "../components/statistics"
 import { useState } from "react"
 
