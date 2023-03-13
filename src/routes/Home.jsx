@@ -1,4 +1,4 @@
-import ImageGallery from '../components/imageGallery/index'
+import ImageGallery from '../components/imageGallery/'
 import Header from '../routes/Header/Header'
 import Footer from '../routes/Footer/Footer'
 
