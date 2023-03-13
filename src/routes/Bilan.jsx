@@ -15,7 +15,7 @@ function Bilan() {
   //requête pour récupéré les votes
 
   useEffect(() => {
-    axios.get('/Bilan').then((response) => {
+    axios.get('https://the-simpsons-politiscales.herokuapp.com/Bilan').then((response) => {
       const data = response.data;
 
       //fusion des objet ayant le même 'name' et aggrégation des votes

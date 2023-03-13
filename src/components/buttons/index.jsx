@@ -36,8 +36,8 @@ function Button({ hidden, setHidden, data, setData, total, setTotal, focus1, set
 
         const realPersonnageNameSuivant = '/Vote/' + personnageNameSuivant
 
-    const urlPostName = 'http://localhost:3000/Vote/' + realUrlName
-    const urlGetName = 'http://localhost:3000/Vote/' + realUrlName
+    const urlPostName = 'https://the-simpsons-politiscales.herokuapp.com/Vote/' + realUrlName
+    const urlGetName = 'https://the-simpsons-politiscales.herokuapp.com/Vote/' + realUrlName
 
     //désactive les boutons après utilisation afin d'éviter de multiplier les données
     const [buttonDisabled, setButtonDisabled] = useState(false);
