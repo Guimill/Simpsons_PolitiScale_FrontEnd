@@ -4,8 +4,30 @@ $color-gauche: #ff5649;
 $color-droite: #1f48f7;
 $background: #2c303a;
 
+//import google font
 
 @import url('https://fonts.googleapis.com/css2?family=Gloock&family=PT+Serif&display=swap');
+
+// media queries
+
+$breakpoints: (
+    s : 700px,
+    l : 1000px,
+);
+
+@mixin s {
+    @media screen and (max-width: map-get($map: $breakpoints, $key: s)){
+        @content;
+    }
+}
+
+@mixin l {
+    @media screen and (max-width: map-get($map: $breakpoints, $key: l)){
+        @content;
+    }
+}
+
+//different mixin
 
 @mixin ButtonHoverAndClick($color){
     &:hover{
@@ -49,6 +71,12 @@ $background: #2c303a;
 }
 
 @mixin font{
+    @include s{
+        font-size: 60%;
+    };
+    @include L{
+        font-size: 80%;
+    };
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 100%;
     font-weight: bold;
@@ -111,7 +139,7 @@ footer{
     background: lighten($color: $color-droite, $amount: 0.2);
   }
   
-  .progress-container .progress {
+.progress-container .progress {
     height: 100%;
     width: 0;
     border-radius: 1rem;
@@ -186,6 +214,10 @@ footer{
 }
 
 .personnage{
+    @include s{
+        height: 10vh;
+        width: 15vw;        
+    };
     height: 25vh;
     width: 15vw;
     @include font;
