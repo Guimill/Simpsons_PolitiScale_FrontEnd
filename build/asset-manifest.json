@@ -1,0 +1,42 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c574ec84.css",
+    "main.js": "/static/js/main.29994ee5.js",
+    "static/media/brockman.png": "/static/media/brockman.466b3542bead4bae6a56.png",
+    "static/media/ralph.png": "/static/media/ralph.00b084c44bf4a2229360.png",
+    "static/media/homer.jpg": "/static/media/homer.19bd95cabc3cdf8a433b.jpg",
+    "static/media/smithers.png": "/static/media/smithers.7de80f2958a7c6dfc9ec.png",
+    "static/media/lisa.png": "/static/media/lisa.cc799c544b669429b0b7.png",
+    "static/media/janine.png": "/static/media/janine.97c15eccaa206dc7c941.png",
+    "static/media/apu.png": "/static/media/apu.9d54f8d437d885d7e315.png",
+    "static/media/edna.png": "/static/media/edna.011cbedd60899aba0840.png",
+    "static/media/manjula.png": "/static/media/manjula.c906efe20d7056236e5e.png",
+    "static/media/scratchy.png": "/static/media/scratchy.a5f3b1935e1b8b18ba07.png",
+    "static/media/skinner.png": "/static/media/skinner.eeeafd58c2e77c2250d7.png",
+    "static/media/itchy.png": "/static/media/itchy.1a77f801fe4b8fa09bc3.png",
+    "static/media/abraham.png": "/static/media/abraham.126a29b9877fc371f1d9.png",
+    "static/media/maggie.png": "/static/media/maggie.3f56eaf3922b2c48d365.png",
+    "static/media/duffman.png": "/static/media/duffman.70cc190f694759f61b0f.png",
+    "static/media/moe.png": "/static/media/moe.185e819eb131567251a6.png",
+    "static/media/frink.png": "/static/media/frink.8731bd92863f08c3b888.png",
+    "static/media/sherri.png": "/static/media/sherri.3bfd7564c941b9ee1503.png",
+    "static/media/krusty.png": "/static/media/krusty.aabf6c09c7345a6f5e0d.png",
+    "static/media/bob.png": "/static/media/bob.61e589619626c2baab97.png",
+    "static/media/selma.png": "/static/media/selma.5623993cfad06c0d5b42.png",
+    "static/media/tetina.png": "/static/media/tetina.9c263321d22756a1a3a5.png",
+    "static/media/marge.jpg": "/static/media/marge.a4d26d5e5cc0d1049a83.jpg",
+    "static/media/ned.png": "/static/media/ned.0db25d0508a53e7c3cc6.png",
+    "static/media/luann.png": "/static/media/luann.9d8c74a07e9530e54309.png",
+    "static/media/sarah.png": "/static/media/sarah.d9cb134c4f3bb7f0553b.png",
+    "static/media/linkedin.svg": "/static/media/linkedin.d6b58f1ac2ecc8aa7abc7b069f53af8b.svg",
+    "static/media/github.svg": "/static/media/github.f25a1ef81e5a682bdb0d82f78eedd48f.svg",
+    "static/media/mail.svg": "/static/media/mail.0c0516d2c184c9e61d322e28d0d1a32e.svg",
+    "index.html": "/index.html",
+    "main.c574ec84.css.map": "/static/css/main.c574ec84.css.map",
+    "main.29994ee5.js.map": "/static/js/main.29994ee5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c574ec84.css",
+    "static/js/main.29994ee5.js"
+  ]
+}
