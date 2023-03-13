@@ -64,44 +64,6 @@ $background: #2c303a;
     margin: 10px;
 }
 
-$breakpoints: (
-    xs : 576px,
-    s : 768px,
-    m : 992px,
-    l : 1200px,
-    xl : 1400px,
-);
-
-@mixin xs {
-    @media screen and (max-width: map-get($map: $breakpoints, $key: xs)){
-        @content;
-    }
-}
-
-@mixin s {
-    @media screen and (max-width: map-get($map: $breakpoints, $key: s)){
-        @content;
-    }
-}
-
-@mixin m {
-    @media screen and (max-width: map-get($map: $breakpoints, $key: m)){
-        @content;
-    }
-}
-
-@mixin l {
-    @media screen and (max-width: map-get($map: $breakpoints, $key: l)){
-        @content;
-    }
-}
-
-@mixin xl {
-    @media screen and (max-width: map-get($map: $breakpoints, $key: xl)){
-        @content;
-    }
-}
-
 html{
     height: 100%;
     width: 100%;

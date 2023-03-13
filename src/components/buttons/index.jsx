@@ -7,8 +7,11 @@ import { useScrollBy } from "react-use-window-scroll";
 
 function Button({ hidden, setHidden, data, setData, total, setTotal, focus1, setFocus1, focus2, setFocus2}) {
 
+  //permet de remonter en haut de la page après chaque appuye sur personnage suivant
   const scrollBy = useScrollBy();
   
+  //récupération de l'url afin de filtrer personnagesList et récupéré les données personnalisé par url
+
     let location = useLocation();
     const urlName = location.pathname;
     const realUrlName = urlName.substring(6);
@@ -20,6 +23,7 @@ function Button({ hidden, setHidden, data, setData, total, setTotal, focus1, set
         return personnage.id
     })
 
+    //permet de passé d'un personnage à un autre avec le bouton suivant
     personnageId++
 
     let personnageDataSuivant = personnagesList.filter(function (personnage) {
@@ -35,9 +39,10 @@ function Button({ hidden, setHidden, data, setData, total, setTotal, focus1, set
     const urlPostName = 'http://localhost:3000/Vote/' + realUrlName
     const urlGetName = 'http://localhost:3000/Vote/' + realUrlName
 
-
+    //désactive les boutons après utilisation afin d'éviter de multiplier les données
     const [buttonDisabled, setButtonDisabled] = useState(false);
         
+    //envoie des données du bouton gauche vers le serveur
           const handleSubmitGauchePost = (e) => {
             e.preventDefault();
             const userData = {
@@ -48,6 +53,8 @@ function Button({ hidden, setHidden, data, setData, total, setTotal, focus1, set
               console.log(response.status);
             });
           };
+
+    //envoie des données du bouton droit vers le serveur
 
           const handleSubmitDroitePost = (e) => {
             e.preventDefault();
@@ -60,6 +67,9 @@ function Button({ hidden, setHidden, data, setData, total, setTotal, focus1, set
             });
           };
 
+
+          //récupération des statistiques pour les statBox
+
           const update = () => {
             axios.get(urlGetName).then((response) => {
                 const total = response.data.length;
@@ -70,7 +80,6 @@ function Button({ hidden, setHidden, data, setData, total, setTotal, focus1, set
                 let voteLength = vote.length;
                 let result = ( voteLength / total ) * 100;
                 setData(result);
-                console.log(result);
             });
           };
 
