@@ -124,6 +124,11 @@ footer {
   background-color: #ff5649;
   padding: 2vh 2vw;
 }
+@media screen and (max-width: 800px) {
+  .statistics__statBox--gauche {
+    font-size: 50%;
+  }
+}
 .statistics__statBox--droite {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
   font-size: 100%;
@@ -138,6 +143,11 @@ footer {
   background-color: #1f48f7;
   padding: 2vh 2vw;
 }
+@media screen and (max-width: 800px) {
+  .statistics__statBox--droite {
+    font-size: 50%;
+  }
+}
 .statistics__statBox--nombreDeVote {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
   font-size: 100%;
@@ -151,6 +161,11 @@ footer {
   margin: 10px;
   background-color: #ffec3a;
   padding: 2vh 2vw;
+}
+@media screen and (max-width: 800px) {
+  .statistics__statBox--nombreDeVote {
+    font-size: 50%;
+  }
 }
 
 .votingCard {
@@ -176,6 +191,17 @@ footer {
   box-shadow: 0px 14px 0px 1px rgba(0, 0, 0, 0.1);
   text-shadow: -2px -1px black, 1px 2px black, 2px 1px black, -1px -2px black;
   color: #f7f7f7;
+}
+@media screen and (max-width: 800px) {
+  .personnage {
+    height: 10vh;
+    width: 15vw;
+  }
+}
+@media screen and (max-width: 800px) {
+  .personnage {
+    font-size: 50%;
+  }
 }
 .personnage__img {
   padding-top: 10px;
@@ -213,6 +239,11 @@ footer {
   padding: 3vh 8vw;
   background-color: #ffec3a;
 }
+@media screen and (max-width: 800px) {
+  .console__containerTop__button {
+    font-size: 50%;
+  }
+}
 .console__containerTop__button:hover {
   background-color: #edd600;
 }
@@ -236,6 +267,11 @@ footer {
   box-shadow: 0px 8px 0px 0px rgba(0, 0, 0, 0.1);
   margin: 10px;
   padding: 3vh 8vw;
+}
+@media screen and (max-width: 800px) {
+  .console__containerBottom__button {
+    font-size: 50%;
+  }
 }
 .console__containerBottom__button--left {
   background-color: #ff5649;
@@ -300,11 +336,21 @@ footer {
   padding-bottom: 4vh;
   padding: 2vh 20vw;
 }
+@media screen and (max-width: 800px) {
+  #bilan {
+    font-size: 50%;
+  }
+}
 #bilan:hover {
   background-color: #edd600;
 }
 #bilan:active {
   box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
+@media screen and (max-width: 800px) {
+  #bilan {
+    font-size: 50%;
+  }
 }
 #bilan > h1 {
   align-items: center;
@@ -323,4 +369,9 @@ footer {
   color: #ffea21;
   text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
   margin: 10px;
+}
+@media screen and (max-width: 800px) {
+  #nameBilan {
+    font-size: 50%;
+  }
 }/*# sourceMappingURL=index.css.map */
