@@ -1,6 +1,6 @@
 import Header from '../routes/Header/Header'
 import Footer from '../routes/Footer/Footer'
-import ImageGallery from '../components/imageGallery/index.jsx'
+import ImageGallery from '../components/ImageGallery'
 
 function Home() {
   return (
