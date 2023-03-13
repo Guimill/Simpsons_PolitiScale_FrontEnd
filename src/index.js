@@ -1,9 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom"
+import {createBrowserRouter, RouterProvider} from "react-router-dom"
 import './assets/styles/css/index.css'
 import Home from './routes/Home'
 import Error from "./routes/Error"

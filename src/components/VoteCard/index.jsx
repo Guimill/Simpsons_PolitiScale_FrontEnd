@@ -5,6 +5,9 @@ import Card from '../card';
 
 function PersonnageCard({focus1}) {
 
+
+    //récupération de l'url afin de filtrer personnagesList et récupéré les données personnalisé par url
+
     let location = useLocation();
     const UrlName = location.pathname;
     const realUrlName = UrlName.substring(6);
@@ -22,7 +25,7 @@ function PersonnageCard({focus1}) {
 
     return(
          <div class="votingCard">
-            <Card name={PersonnageName} src={PersonnageSrc}/>
+            <Card focus={focus1} name={PersonnageName} src={PersonnageSrc}/>
          </div>
     )
 }

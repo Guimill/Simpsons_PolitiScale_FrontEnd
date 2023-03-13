@@ -1,4 +1,5 @@
 function StatBox({data, total}){
+
     return(
         <div class="statistics">
             <div class="statistics__statBox">
