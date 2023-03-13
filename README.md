@@ -6,4 +6,5 @@ rajouter l'ARIA
 rendre un peu plus responsive l'imagegallery
 commenter le code
 audit fix les dépendances
+rajouter une application bilan des statistics
 déployer

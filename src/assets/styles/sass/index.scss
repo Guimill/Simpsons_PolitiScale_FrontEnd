@@ -50,9 +50,9 @@ $background: #2c303a;
 
 @mixin font{
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 3vw;
+    font-size: 100%;
     font-weight: bold;
-    padding-bottom: 4vw;
+    padding-bottom: 4vh;
 }
 
 @mixin boutonLike{
@@ -153,9 +153,7 @@ footer{
     height: 100%;
     width: 0;
     border-radius: 1rem;
-  
     background: lighten($color: $color-gauche, $amount: 0.2);
-  
     transition: width 0.4s ease-out;
   }
   
@@ -255,7 +253,7 @@ footer{
         justify-content: center;
         &__button{
             @include boutonLike;
-            padding: 2vh 8vw;
+            padding: 3vh 8vw;
             @include bg($color-primary);
             @include ButtonHoverAndClick($color-primary)
             }
@@ -266,7 +264,7 @@ footer{
         justify-content: center;
         &__button{
             @include boutonLike;
-            padding: 2vh 8vw;
+            padding: 3vh 8vw;
             &--left{
                 @include bg($color-gauche);
                 @include ButtonHoverAndClick($color-gauche)
@@ -297,4 +295,27 @@ footer{
   #a-tittle:hover{
     color: black;
     text-decoration: none;
+  }
+
+  #bilan{
+    @include displayCenter;
+    @include block;
+    @include boutonLike;
+    @include bg(darken($color-primary, 5%));
+    @include ButtonHoverAndClick($color-primary);
+    @include font;
+    padding: 2vh 20vw;
+    &>h1{
+        align-items: center;
+    }
+  }
+
+  #nameBilan{
+    justify-content: space-evenly;
+    @include font;
+    @include block;
+    font-size: 5vw;
+    color: darken($color-primary,5%);
+    text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+    margin: 10px;
   }

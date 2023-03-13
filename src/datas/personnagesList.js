@@ -29,11 +29,7 @@ import Krusty from '../assets/images/krusty.png'
 import Duffman from '../assets/images/duffman.png'
 import Smithers from '../assets/images/smithers.png'
 
-
-
-
-
-
+// JSON néccessaire à la création des Cards
 
 export const personnagesList = [
     {

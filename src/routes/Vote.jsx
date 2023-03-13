@@ -1,4 +1,4 @@
-import PersonnageCard from "../components/VoteCard"
+import PersonnageCard from "../components/voteCard"
 import Button from "../components/buttons"
 import Footer from "./Footer/Footer"
 import Header from "./Header/Header"
@@ -9,16 +9,15 @@ function Vote() {
     const [hidden, setHidden] = useState(true);
     const [data, setData] = useState(null);
     const [total, setTotal] = useState(null);
-    
-
-
+    const [focus1, setFocus1] = useState(true);
+    const [focus2, setFocus2] = useState(true);
 
     return (
         <div>
             <Header />
-                    <PersonnageCard />
+                    <PersonnageCard focus1={focus1}/>
                     <Statistics hidden={hidden} setHidden={setHidden} data={data} setData={setData} total={total} setTotal={setTotal} />
-                    <Button hidden={hidden} setHidden={setHidden} data={data} setData={setData} total={total} setTotal={setTotal}/>
+                    <Button focus1={focus1} setFocus1={setFocus1} focus2={focus2} setFocus2={setFocus2} hidden={hidden} setHidden={setHidden} data={data} setData={setData} total={total} setTotal={setTotal}/>
             <Footer />
         </div>
     )
