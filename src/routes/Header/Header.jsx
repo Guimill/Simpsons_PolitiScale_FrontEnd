@@ -18,7 +18,7 @@ function Header() {
         </div>
         <div class="banner__containerBottom">
             <a class="banner__containerBottom__a" 
-                href="guillaume.milleret@gmail.com">
+                href="mailto:guillaume.milleret@gmail.com">
                     <img class="banner__containerBottom__a__img" src={mail} alt="logo d'une enveloppe contenant mon mail"/></a>
             <a class="banner__containerBottom__a" 
                 href="https://github.com/Guimill">
