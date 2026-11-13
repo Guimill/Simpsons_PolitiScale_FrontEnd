@@ -1,8 +1,8 @@
-function Card({ name, src }) {
+function Card({ name, src, as: Title = "h2" }) {
   return (
     <div className="personnage">
-      <h2>{name}</h2>
-      <img className="personnage__img" src={src} alt={name} />
+      <Title>{name}</Title>
+      <img className="personnage__img" src={src} alt="" loading="lazy" />
     </div>
   );
 }

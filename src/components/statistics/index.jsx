@@ -11,19 +11,17 @@ function Statistics({ data, total }) {
   }, [data]);
 
   return (
-    <div>
-      <div className="statistics">
-        <div className="progress-container">
-          <div
-            role="progressbar"
-            aria-label="Pourcentage de votes à gauche"
-            aria-valuenow={Math.round(data ?? 0)}
-            aria-valuemin="0"
-            aria-valuemax="100"
-            className="progress"
-            style={{ width: `${width}%` }}
-          ></div>
-        </div>
+    <div className="statistics" aria-live="polite">
+      <div className="progress-container">
+        <div
+          role="progressbar"
+          aria-label="Pourcentage de votes à gauche"
+          aria-valuenow={Math.round(data ?? 0)}
+          aria-valuemin="0"
+          aria-valuemax="100"
+          className="progress"
+          style={{ width: `${width}%` }}
+        ></div>
       </div>
       <StatBox data={data} total={total} />
     </div>

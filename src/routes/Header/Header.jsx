@@ -1,34 +1,37 @@
-import mail from '../../assets/images/mail.svg'
-import github from '../../assets/images/github.svg'
-import linkedin from '../../assets/images/linkedin.svg'
-
+import { Link } from "react-router";
+import mail from "../../assets/images/mail.svg";
+import github from "../../assets/images/github.svg";
+import linkedin from "../../assets/images/linkedin.svg";
 
 function Header() {
-    return (
-        <header className="banner" role="banner" style={{minWidth: "100%"}}>
-        <div className="banner__containerTop">
-            <a href="/" id='a-tittle'><h1>SIMPSONS PolitiScale</h1></a>
-            <p> {/* permet de positionner correctement le banner avec space-around */} </p>
-            <p> {/* permet de positionner correctement le banner avec space-around */} </p>
-            <p> {/* permet de positionner correctement le banner avec space-around */} </p>
-            <div>
-                <a href="/"><button className="banner__containerTop__buttonLangue"><h3>FR</h3></button></a>
-                <a href="https://en.duolingo.com/course/fr/en/Learn-French"><button className="banner__containerTop__buttonLangue"><h3>EN</h3></button></a>
-            </div>
-        </div>
-        <div className="banner__containerBottom">
-            <a className="banner__containerBottom__a" 
-                href="mailto:guillaume.milleret@gmail.com">
-                    <img className="banner__containerBottom__a__img" src={mail} alt="logo d'une enveloppe contenant mon mail"/></a>
-            <a className="banner__containerBottom__a" 
-                href="https://github.com/Guimill">
-                    <img className="banner__containerBottom__a__img" src={github} alt="logo de github redirigeant vers mon github"/></a>
-            <a className="banner__containerBottom__a" 
-                href="https://www.linkedin.com/in/guillaume-milleret/">
-                    <img className="banner__containerBottom__a__img" src={linkedin} alt="logo de linkedin redirigeant vers mon linkedin"/></a>
-        </div>
+  return (
+    <header className="banner">
+      <div className="banner__top">
+        <Link to="/" className="banner__title">
+          SIMPSONS PolitiScale
+        </Link>
+        <nav className="banner__lang" aria-label="Langue">
+          <Link to="/" lang="fr">
+            FR
+          </Link>
+          <a href="https://en.duolingo.com/course/fr/en/Learn-French" lang="en">
+            EN
+          </a>
+        </nav>
+      </div>
+      <nav className="banner__social" aria-label="Contact">
+        <a href="mailto:guillaume.milleret@gmail.com">
+          <img src={mail} alt="M'écrire un e-mail" />
+        </a>
+        <a href="https://github.com/Guimill">
+          <img src={github} alt="Mon GitHub" />
+        </a>
+        <a href="https://www.linkedin.com/in/guillaume-milleret/">
+          <img src={linkedin} alt="Mon LinkedIn" />
+        </a>
+      </nav>
     </header>
-    )
+  );
 }
 
-export default Header
+export default Header;

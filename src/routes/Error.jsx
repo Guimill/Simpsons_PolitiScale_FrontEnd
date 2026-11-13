@@ -1,18 +1,22 @@
-import Ralph from '../assets/images/ralph.png'
-import Header from '../routes/Header/Header'
-import Footer from '../routes/Footer/Footer'
+import Ralph from "../assets/images/ralph.png";
+import Header from "../routes/Header/Header";
+import Footer from "../routes/Footer/Footer";
 
 function Error() {
-    return (
-        <div>
-            <Header />
-                <div className="statistics" style={{padding:50}}>
-                    <img src={Ralph} alt="Ralph wiggum" />
-                    <div className="statistics__statBox--nombreDeVote"><h1>ERREUR 404 <br />Je suis un Licorné !</h1></div>
-                </div>
-            <Footer />
-        </div>
-    )
+  return (
+    <>
+      <Header />
+      <main className="page error">
+        <img src={Ralph} alt="Ralph Wiggum" />
+        <h1>
+          ERREUR 404
+          <br />
+          Je suis un Licorné !
+        </h1>
+      </main>
+      <Footer />
+    </>
+  );
 }
- 
-export default Error
+
+export default Error;

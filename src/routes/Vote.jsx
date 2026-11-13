@@ -12,15 +12,17 @@ function Vote() {
   if (!personnage) return <Error />;
 
   return (
-    <div>
+    <>
       <Header />
-      <div className="votingCard">
-        <Card name={personnage.name} src={personnage.src} />
-      </div>
-      {/* key: vote state and statistics start fresh for each character */}
-      <Console key={personnage.id} personnage={personnage} />
+      <main className="page">
+        <div className="votingCard">
+          <Card name={personnage.name} src={personnage.src} as="h1" />
+        </div>
+        {/* key: vote state and statistics start fresh for each character */}
+        <Console key={personnage.id} personnage={personnage} />
+      </main>
       <Footer />
-    </div>
+    </>
   );
 }
 

@@ -1,315 +1,345 @@
+@use "sass:color";
+
+// Mobile-first: base styles target phones, media queries enlarge for tablets / desktops.
+
+@import url("https://fonts.googleapis.com/css2?family=Gloock&display=swap");
+
 $color-primary: #ffec3a;
-$color-secondary: #f7f7f7 ;
+$color-secondary: #f7f7f7;
 $color-gauche: #ff5649;
 $color-droite: #1f48f7;
-$background: #2c303a;
+$ink: #111;
 
-//import google font
+$bp-tablet: 600px;
+$bp-desktop: 960px;
 
-@import url('https://fonts.googleapis.com/css2?family=Gloock&family=PT+Serif&display=swap');
-
-// media queries
-
-$breakpoints: (
-    s : 700px,
-    l : 1000px,
-);
-
-@mixin s {
-    @media screen and (max-width: map-get($map: $breakpoints, $key: s)){
-        @content;
-    }
+@mixin tablet {
+  @media (min-width: $bp-tablet) { @content; }
+}
+@mixin desktop {
+  @media (min-width: $bp-desktop) { @content; }
 }
 
-@mixin l {
-    @media screen and (max-width: map-get($map: $breakpoints, $key: l)){
-        @content;
-    }
+@mixin outlined-text($w: 1px) {
+  color: $color-secondary;
+  text-shadow: (-$w) 0 $ink, 0 $w * 2 $ink, $w * 2 0 $ink, 0 (-$w) $ink;
 }
 
-//different mixin
-
-@mixin ButtonHoverAndClick($color){
-    &:hover{
-        background-color: darken($color: $color, $amount: 15%);
-    };
-    &:active{
-        box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
-    }
+@mixin cartoon-box {
+  border: 1px solid $ink;
+  box-shadow: 0 6px 0 0 rgba(0, 0, 0, 0.12);
 }
 
-@mixin displayCenter{
+@mixin button($bg) {
+  @include cartoon-box;
+  @include outlined-text;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px; // comfortable touch target
+  padding: 0.75rem 1.25rem;
+  background-color: $bg;
+  font: bold clamp(1rem, 0.9rem + 0.8vw, 1.5rem) / 1.2 "Trebuchet MS", "Lucida Sans", Arial, sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.15s, transform 0.1s;
+  &:hover:not(:disabled) { background-color: color.adjust($bg, $lightness: -12%); }
+  &:active:not(:disabled) {
+    transform: translateY(2px);
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+  }
+  &:focus-visible { outline: 3px solid $ink; outline-offset: 3px; }
+  &:disabled {
+    cursor: default;
+    box-shadow: none;
+    background-color: color.mix($bg, #fff, 40%); // solid (opacity would show the dots)
+    filter: grayscale(0.5);
+  }
+}
+
+// ---------------------------------------------------------------- base
+
+*,
+*::before,
+*::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  font-family: "Trebuchet MS", "Lucida Sans", Arial, sans-serif;
+  color: $ink;
+  background-color: color.adjust($color-secondary, $lightness: -2%);
+  background-image: radial-gradient(circle at center, $ink 0.1rem, transparent 0),
+    radial-gradient(circle at center, $ink 0.1rem, transparent 0);
+  background-size: 1.3rem 1.3rem;
+  background-position: 0 0, 0.65rem 0.65rem;
+}
+
+#root { flex: 1; display: flex; flex-direction: column; }
+
+img { max-width: 100%; display: block; }
+ul { list-style: none; }
+
+.page {
+  flex: 1;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.25rem 1rem 2.5rem;
+  @include tablet { padding: 2rem 1.5rem 3rem; }
+}
+
+// ---------------------------------------------------------------- header / footer
+
+.banner {
+  &__top {
     display: flex;
+    flex-wrap: nowrap; // on tiny screens the title wraps, the FR/EN buttons stay on its line
     align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.6rem 0.75rem;
+    background: $color-secondary;
+    box-shadow: 0 6px 0 1px rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 1;
+    @include tablet { padding: 1rem 2rem; }
+  }
+  &__title {
+    font-family: "Gloock", serif;
+    font-size: clamp(1.05rem, 0.7rem + 2.8vw, 2.6rem);
+    line-height: 1.1;
+    min-width: 0;
+    color: $ink;
+    text-decoration: none;
+    &:hover { text-decoration: underline; }
+  }
+  &__lang {
+    display: flex;
+    flex-shrink: 0;
+    gap: 0.4rem;
+    a {
+      @include button($color-primary);
+      min-width: 44px;
+      min-height: 44px;
+      padding: 0.25rem 0.5rem;
+      font-size: 1rem;
+    }
+  }
+  &__social {
+    display: flex;
     justify-content: center;
-}
-
-@mixin block{
-    margin: 10% 0 10% 0 ;
-    grid-column:5/9 ;
-    text-align: center;
-}
-
-@mixin bg($colour){
-    background-color: $colour;
-}
-
-@mixin border{
-    border: solid;
-    border-width: 1px;
-}
-
-@mixin bannerColorAndSize($color){
-    font-family: 'Gloock', serif;
-    font-size: 2vw;
-    display: flex;
-    height: 5rem;
-    width: 100%;
-    flex-flow: row nowrap;
-    background-color: $color;
-    align-items: center;
-}
-
-@mixin font{
-    @include s{
-        font-size: 60%;
-    };
-    @include l{
-        font-size: 80%;
-    };
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 100%;
-    font-weight: bold;
-    padding-bottom: 4vh;
-}
-
-@mixin boutonLike{
-    @include font;
-    @include border;
-    color: $color-secondary;
-    text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
-    box-shadow: 0px 8px 0px 0px rgba(0,0,0,0.1);
-    margin: 10px;
-}
-
-html{
-    height: 100%;
-    width: 100%;
-}
-  
-* {
-    margin: 0;
-    padding: 0;
-}
-
-*:disabled {
-    background-color: black;
-    color: linen;
-    opacity: 0.8;
-    &:hover{
-        text-decoration: none;
-        opacity: 0.2;
+    gap: clamp(1.5rem, 8vw, 6rem);
+    padding: 0.6rem 1rem;
+    background: $color-primary;
+    border-block: 1px solid $ink;
+    a {
+      display: block;
+      padding: 0.25rem;
+      border-radius: 6px;
+      &:focus-visible { outline: 3px solid $ink; }
     }
+    img { width: clamp(28px, 6vw, 40px); height: auto; }
+  }
 }
 
-body{
-    min-width: 100%;
-    min-height: 100%;
-    background-image: radial-gradient(
-        circle at center,
-        black 0.1rem,
-        transparent 0
-      ), radial-gradient(circle at center, black 0.1rem, transparent 0);
-    background-size: 1.3rem 1.3rem;
-    background-position: 0 0, 0.65rem 0.65rem;
-    background-color: darken($color: $color-secondary, $amount: 2%);
-    z-index: 0;
+footer {
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  background: $color-primary;
+  border-top: 1px solid $ink;
+  a { color: $ink; }
 }
 
-footer{
-    background-color: $color-primary;
+// ---------------------------------------------------------------- character cards
+
+.personnage {
+  @include cartoon-box;
+  @include outlined-text(1px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  height: 100%;
+  padding: 0.75rem 0.5rem 1rem;
+  background: $color-primary;
+  box-shadow: 0 10px 0 1px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  h2 { font-size: clamp(1rem, 0.85rem + 0.8vw, 1.5rem); }
+  &__img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: contain;
+  }
 }
 
+// Home: gallery of characters (as many columns as fit, at least 2 on a phone)
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(140px, 42vw), 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+  @include tablet { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1.5rem; }
+  a {
+    display: block;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: transform 0.15s;
+    &:hover { transform: translateY(-4px) rotate(-1deg); }
+    &:focus-visible { outline: 3px solid $ink; outline-offset: 4px; }
+  }
+}
+
+.bilan-link {
+  @include button(color.adjust($color-primary, $lightness: -5%));
+  display: flex;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  font-family: "Gloock", serif;
+  font-size: clamp(1.4rem, 1rem + 2vw, 2.2rem);
+}
+
+// ---------------------------------------------------------------- vote page
+
+.votingCard {
+  width: min(320px, 75vw);
+  margin: 0 auto 2rem;
+}
+
+.console {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  &__choices {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  &__button {
+    &--left { @include button($color-gauche); }
+    &--right { @include button($color-droite); }
+    &--next { @include button($color-primary); }
+  }
+}
+
+// ---------------------------------------------------------------- statistics
+
+.statistics {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto 1.5rem;
+}
+
+.message {
+  max-width: 640px;
+  margin: 0 auto 1rem;
+  padding: 0.75rem 1rem;
+  text-align: center;
+  background: $color-secondary;
+  @include cartoon-box;
+}
 
 .progress-container {
-    height: 5vh;
-    width: 50vw;
-    border-radius: 1rem;
-  
-    background: lighten($color: $color-droite, $amount: 0.2);
-  }
-  
-.progress-container .progress {
-    height: 100%;
-    width: 0;
-    border-radius: 1rem;
-    background: lighten($color: $color-gauche, $amount: 0.2);
-    transition: width 0.4s ease-out;
-  }
-  
-
-.banner{
-    display: flex;
-    flex-flow: column nowrap;
-        &__containerTop{
-            @include bannerColorAndSize($color-secondary);
-            justify-content:space-around;
-            box-shadow: 0px 8px 0px 1px rgba(0,0,0,0.05);
-            z-index: 1;
-                &__buttonLangue{
-                    padding: 2vh 2vw;
-                    @include border;
-                    box-shadow: 0px 8px 0px 0px rgba(0,0,0,0.1);
-                    background-color: $color-primary;
-                    @include ButtonHoverAndClick($color-primary)
-                }
-        }
-        &__containerBottom{
-            @include bannerColorAndSize($color-primary);
-            @include border;
-            justify-content: space-evenly;
-            &__a{
-                max-height: 100%;
-                &__img{
-                    margin: 0 5px 0 5px;
-                    width: 40%;
-                }
-            }
-
-        }
+  width: 100%;
+  height: clamp(18px, 4vh, 32px);
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid $ink;
+  background: $color-droite;
 }
 
-.statistics{
-    @include displayCenter();
-    margin-bottom : 50px;
-        &__statBox{
-            color: $color-secondary;
-            display: flex;
-            justify-content: space-between;
-            &--gauche{
-                @include boutonLike;
-                background-color: $color-gauche;
-                padding : 2vh 2vw;
-            };
-            &--droite{
-                @include boutonLike;
-                background-color: $color-droite;
-                padding : 2vh 2vw;
-            }
-            &--nombreDeVote{
-                @include boutonLike;
-                background-color: $color-primary;
-                padding : 2vh 2vw;
-            }
-    }
+.progress {
+  height: 100%;
+  width: 0;
+  background: $color-gauche;
+  transition: width 0.6s ease-out;
+  @media (prefers-reduced-motion: reduce) { transition: none; }
 }
 
-
-.votingCard{
-    @include displayCenter();
-    &>div{
-        height: 60%;
-        width: 20%;
-    }
-}
-
-.personnage{
-    @include s{
-        height: 10vh;
-        width: 15vw;        
-    };
-    height: 25vh;
-    width: 15vw;
-    @include font;
-    @include border;
-    background-color: $color-primary;
-    box-shadow: 0px 14px 0px 1px rgba(0,0,0,0.1);
-    text-shadow: -2px -1px black, 1px 2px black, 2px 1px black, -1px -2px black;
-    color: $color-secondary;
-        &__img{
-            padding-top: 10px;
-            max-width: 100%;
-            max-height: 75%;
-        }
-}
-
-.stat, .personnage{
-    @include block;
-}
-
-.console{
-    display: flex;
-    flex-flow: column wrap;
-    column-gap: 5%;
-    &__containerTop{
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: center;
-        &__button{
-            @include boutonLike;
-            padding: 3vh 8vw;
-            @include bg($color-primary);
-            @include ButtonHoverAndClick($color-primary)
-            }
-        }
-    &__containerBottom{
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: center;
-        &__button{
-            @include boutonLike;
-            padding: 3vh 8vw;
-            &--left{
-                @include bg($color-gauche);
-                @include ButtonHoverAndClick($color-gauche)
-            }
-            &--right{
-                @include bg($color-droite);
-                @include ButtonHoverAndClick($color-droite)
-            }
-        }
-    }
-}
-
-  #a-tittle:link{
-    color: black;
-    text-decoration: none;
+.statBox {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 0.5rem;
+  width: 100%;
+  > div {
+    @include cartoon-box;
+    @include outlined-text;
+    padding: 0.5rem 0.75rem;
+    text-align: center;
+    font-weight: bold;
+    font-size: clamp(0.95rem, 0.85rem + 0.6vw, 1.3rem);
+    white-space: nowrap;
   }
+  &__gauche { background: $color-gauche; }
+  &__total { background: $color-primary; }
+  &__droite { background: $color-droite; }
+}
 
-  #a-tittle:active{
-    color: black;
-    text-decoration: none;
-  }
+// ---------------------------------------------------------------- bilan
 
-  #a-tittle:visited{
-    color: black;
-    text-decoration: none;
-  }
-
-  #a-tittle:hover{
-    color: black;
-    text-decoration: none;
-  }
-
-  #bilan{
-    @include displayCenter;
-    @include block;
-    @include boutonLike;
-    @include bg(darken($color-primary, 5%));
-    @include ButtonHoverAndClick($color-primary);
-    @include font;
-    padding: 2vh 20vw;
-    &>h1{
-        align-items: center;
+.bilan {
+  display: grid;
+  gap: 1rem;
+  @include desktop { grid-template-columns: 1fr 1fr; gap: 1.25rem 2rem; }
+  &__row {
+    display: grid;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background: rgba($color-secondary, 0.92);
+    @include cartoon-box;
+    @include tablet {
+      grid-template-columns: 9rem 1fr;
+      align-items: center;
+      gap: 1rem;
     }
   }
-
-  #nameBilan{
-    justify-content: space-evenly;
-    @include font;
-    @include block;
-    font-size: 5vw;
-    color: darken($color-primary,5%);
-    text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
-    margin: 10px;
+  &__name {
+    font-family: "Gloock", serif;
+    font-size: clamp(1.3rem, 1rem + 1.5vw, 1.8rem);
+    @include outlined-text;
+    color: color.adjust($color-primary, $lightness: -5%);
   }
+  .statBox { max-width: none; }
+}
+
+// ---------------------------------------------------------------- error page
+
+.error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: center;
+  img { width: min(320px, 70vw); }
+  h1 {
+    @include cartoon-box;
+    @include outlined-text;
+    padding: 1rem 1.5rem;
+    background: $color-primary;
+    font-size: clamp(1.4rem, 1rem + 2vw, 2.2rem);
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

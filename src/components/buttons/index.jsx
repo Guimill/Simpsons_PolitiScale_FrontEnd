@@ -30,27 +30,17 @@ function Console({ personnage }) {
     <>
       {voted && <Statistics data={percentGauche(stats)} total={stats.total} />}
       {error && (
-        <p className="statistics" role="alert">
+        <p className="message" role="alert">
           {error}
         </p>
       )}
       <div className="console">
-        <div className="console__containerTop">
-          <Link
-            to={suivant ? `/Vote/${suivant.name}` : "/Bilan"}
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          >
-            <button className="console__containerTop__button" tabIndex={-1}>
-              {suivant ? "Personnage Suivant" : "Voir le bilan"}
-            </button>
-          </Link>
-        </div>
-        <div className="console__containerBottom">
+        <div className="console__choices">
           <button
             type="button"
             disabled={voted || sending}
             onClick={() => vote("Gauche")}
-            className="console__containerBottom__button console__containerBottom__button--left"
+            className="console__button--left"
           >
             Gauche
           </button>
@@ -58,11 +48,18 @@ function Console({ personnage }) {
             type="button"
             disabled={voted || sending}
             onClick={() => vote("Droite")}
-            className="console__containerBottom__button console__containerBottom__button--right"
+            className="console__button--right"
           >
             Droite
           </button>
         </div>
+        <Link
+          className="console__button--next"
+          to={suivant ? `/Vote/${suivant.name}` : "/Bilan"}
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        >
+          {suivant ? "Personnage suivant →" : "Voir le bilan →"}
+        </Link>
       </div>
     </>
   );

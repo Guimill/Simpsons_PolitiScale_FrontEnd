@@ -16,30 +16,32 @@ function Bilan() {
   }, []);
 
   return (
-    <div>
+    <>
       <Header />
-      {error && (
-        <p className="statistics" role="alert">
-          {error}
-        </p>
-      )}
-      {!stats && !error && <p className="statistics">Chargement…</p>}
-      {stats && (
-        <ul>
-          {personnagesList.map(({ id, name }) => {
-            const s = stats[name] || { total: 0 };
-            return (
-              <li key={id}>
-                <h1 id="nameBilan">
-                  {name} :<StatBox total={s.total} data={percentGauche(s)} />
-                </h1>
-              </li>
-            );
-          })}
-        </ul>
-      )}
+      <main className="page">
+        <h1 className="visually-hidden">Bilan des votes</h1>
+        {error && (
+          <p className="message" role="alert">
+            {error}
+          </p>
+        )}
+        {!stats && !error && <p className="message">Chargement…</p>}
+        {stats && (
+          <ul className="bilan">
+            {personnagesList.map(({ id, name }) => {
+              const s = stats[name] || { total: 0 };
+              return (
+                <li key={id} className="bilan__row">
+                  <h2 className="bilan__name">{name}</h2>
+                  <StatBox total={s.total} data={percentGauche(s)} />
+                </li>
+              );
+            })}
+          </ul>
+        )}
+      </main>
       <Footer />
-    </div>
+    </>
   );
 }
 
