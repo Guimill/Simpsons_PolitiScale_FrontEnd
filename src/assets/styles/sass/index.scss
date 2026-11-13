@@ -242,7 +242,8 @@ footer {
   width: 100%;
   max-width: 640px;
   margin: 0 auto;
-  &__choices {
+  &__choices,
+  &__nav {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
@@ -250,7 +251,7 @@ footer {
   &__button {
     &--left { @include button($color-gauche); }
     &--right { @include button($color-droite); }
-    &--next { @include button($color-primary); }
+    &--nav { @include button($color-primary); padding-inline: 0.5rem; white-space: nowrap; }
   }
 }
 

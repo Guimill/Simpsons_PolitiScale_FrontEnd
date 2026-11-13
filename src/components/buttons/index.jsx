@@ -24,7 +24,9 @@ function Console({ personnage }) {
   }, [personnage.name]);
 
   const index = personnagesList.findIndex((p) => p.id === personnage.id);
+  const precedent = personnagesList[index - 1];
   const suivant = personnagesList[index + 1];
+  const toTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   const vote = async (choix) => {
     setSending(true);
@@ -77,13 +79,14 @@ function Console({ personnage }) {
             {myVote === "Droite" ? "✓ Droite" : "Droite"}
           </button>
         </div>
-        <Link
-          className="console__button--next"
-          to={suivant ? `/Vote/${suivant.name}` : "/Bilan"}
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        >
-          {suivant ? "Personnage suivant →" : "Voir le bilan →"}
-        </Link>
+        <nav className="console__nav" aria-label="Navigation entre personnages">
+          <Link className="console__button--nav" to={precedent ? `/Vote/${precedent.name}` : "/"} onClick={toTop}>
+            {precedent ? "← Précédent" : "← Accueil"}
+          </Link>
+          <Link className="console__button--nav" to={suivant ? `/Vote/${suivant.name}` : "/Bilan"} onClick={toTop}>
+            {suivant ? "Suivant →" : "Bilan →"}
+          </Link>
+        </nav>
       </div>
     </>
   );
