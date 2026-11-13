@@ -4,8 +4,8 @@ import { personnagesList } from "../../datas/personnagesList";
 import { getStats, sendVote, percentGauche } from "../../api";
 import Statistics from "../statistics";
 
-// Vote buttons, then the statistics once voted. One vote per character, ever:
-// the API remembers this browser (anonymous cookie) and tells us if it already voted.
+// Vote buttons, then the statistics once voted. One vote per character per browser
+// (the API remembers it with an anonymous cookie), which can be changed at any time.
 function Console({ personnage }) {
   const [stats, setStats] = useState(null); // includes myVote
   const [loading, setLoading] = useState(true);
@@ -39,14 +39,14 @@ function Console({ personnage }) {
   };
 
   const myVote = stats && stats.myVote;
-  const locked = loading || sending || Boolean(myVote);
+  const busy = loading || sending;
 
   return (
     <>
       {myVote && (
         <>
           <p className="message" role="status">
-            Vous avez voté <strong>{myVote}</strong> pour {personnage.name}.
+            Vous avez voté <strong>{myVote}</strong> pour {personnage.name}. Vous pouvez changer d'avis à tout moment.
           </p>
           <Statistics data={percentGauche(stats)} total={stats.total} />
         </>
@@ -60,7 +60,7 @@ function Console({ personnage }) {
         <div className="console__choices">
           <button
             type="button"
-            disabled={locked}
+            disabled={busy || myVote === "Gauche"}
             aria-pressed={myVote === "Gauche"}
             onClick={() => vote("Gauche")}
             className="console__button--left"
@@ -69,7 +69,7 @@ function Console({ personnage }) {
           </button>
           <button
             type="button"
-            disabled={locked}
+            disabled={busy || myVote === "Droite"}
             aria-pressed={myVote === "Droite"}
             onClick={() => vote("Droite")}
             className="console__button--right"
