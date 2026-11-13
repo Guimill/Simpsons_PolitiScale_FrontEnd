@@ -1,32 +1,33 @@
+import { useEffect, useState } from "react";
 import StatBox from "../statBox/index";
 
+// Animated progress bar + percentages
+function Statistics({ data, total }) {
+  const [width, setWidth] = useState(0);
 
-function Statistics({ hidden, setHidden, data, setData, total, setTotal}) {
+  useEffect(() => {
+    const t = setTimeout(() => setWidth(data ?? 0), 100); // lets the CSS transition animate
+    return () => clearTimeout(t);
+  }, [data]);
 
-    const progressbar = document.querySelector(".progress");
-
-    const changeProgress = (progress) => {
-    progressbar.style.width = `${progress}%`;
-    };
-
-    setTimeout(() => changeProgress(data), 600);
-
-    return (
-        <div>
-            {!hidden ? <div>
-                <div class="statistics">
-                    <div class="progress-container">
-                        <div id="percent-loaded" role="progressbar" aria-valuenow={data}
-                            aria-valuemin="0" aria-valuemax="100"  class="progress"></div>
-                    </div>
-                </div>
-                <div>
-                    <StatBox data={data} total={total}/>
-                </div>
-            </div> : null}
-        </div>  
-    );
-  }
-
+  return (
+    <div>
+      <div className="statistics">
+        <div className="progress-container">
+          <div
+            role="progressbar"
+            aria-label="Pourcentage de votes à gauche"
+            aria-valuenow={Math.round(data ?? 0)}
+            aria-valuemin="0"
+            aria-valuemax="100"
+            className="progress"
+            style={{ width: `${width}%` }}
+          ></div>
+        </div>
+      </div>
+      <StatBox data={data} total={total} />
+    </div>
+  );
+}
 
 export default Statistics;

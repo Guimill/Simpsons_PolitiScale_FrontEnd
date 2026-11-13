@@ -1,26 +1,27 @@
-import Button from "../components/buttons"
-import Footer from "./Footer/Footer"
-import Header from "./Header/Header"
-import PersonnageCard from "../components/VoteCard"
-import Statistics from "../components/statistics"
-import { useState } from "react"
+import { useParams } from "react-router";
+import Footer from "./Footer/Footer";
+import Header from "./Header/Header";
+import Error from "./Error";
+import Card from "../components/card";
+import Console from "../components/buttons";
+import { personnagesList } from "../datas/personnagesList";
 
 function Vote() {
-    const [hidden, setHidden] = useState(true);
-    const [data, setData] = useState(null);
-    const [total, setTotal] = useState(null);
-    const [focus1, setFocus1] = useState(true);
-    const [focus2, setFocus2] = useState(true);
+  const { name } = useParams();
+  const personnage = personnagesList.find((p) => p.name.toLowerCase() === name.toLowerCase());
+  if (!personnage) return <Error />;
 
-    return (
-        <div>
-            <Header />
-                    <PersonnageCard focus1={focus1}/>
-                    <Statistics hidden={hidden} setHidden={setHidden} data={data} setData={setData} total={total} setTotal={setTotal} />
-                    <Button focus1={focus1} setFocus1={setFocus1} focus2={focus2} setFocus2={setFocus2} hidden={hidden} setHidden={setHidden} data={data} setData={setData} total={total} setTotal={setTotal}/>
-            <Footer />
-        </div>
-    )
+  return (
+    <div>
+      <Header />
+      <div className="votingCard">
+        <Card name={personnage.name} src={personnage.src} />
+      </div>
+      {/* key: vote state and statistics start fresh for each character */}
+      <Console key={personnage.id} personnage={personnage} />
+      <Footer />
+    </div>
+  );
 }
 
-export default Vote
+export default Vote;

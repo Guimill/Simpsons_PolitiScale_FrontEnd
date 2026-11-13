@@ -6,9 +6,9 @@ function Error() {
     return (
         <div>
             <Header />
-                <div class="statistics" style={{padding:50}}>
+                <div className="statistics" style={{padding:50}}>
                     <img src={Ralph} alt="Ralph wiggum" />
-                    <div class="statistics__statBox--nombreDeVote"><h1>ERREUR 404 <br />Je suis un Licorné !</h1></div>
+                    <div className="statistics__statBox--nombreDeVote"><h1>ERREUR 404 <br />Je suis un Licorné !</h1></div>
                 </div>
             <Footer />
         </div>

@@ -1,0 +1,16 @@
+# Simpsons PolitiScale frontend, behind Nginx Proxy Manager:
+# NPM forwards politiscale.mi-fan.fr to http://politiscale:80.
+# /api/ is passed to the backend stack (repo Simpsons_PolitiScale_Backend) as http://politiscale-api:3000.
+name: politiscale
+
+services:
+  web:
+    build: .
+    restart: unless-stopped
+    networks:
+      mynetwork:
+        aliases: [politiscale]
+
+networks:
+  mynetwork:
+    external: true

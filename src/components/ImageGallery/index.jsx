@@ -1,5 +1,5 @@
 import { personnagesList } from "../../datas/personnagesList";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import Card from "../card";
 import styled from "styled-components";
 
