@@ -1,14 +1,27 @@
 import { Link } from "react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { personnagesList } from "../../datas/personnagesList";
-import { sendVote, percentGauche } from "../../api";
+import { getStats, sendVote, percentGauche } from "../../api";
 import Statistics from "../statistics";
 
-// Vote buttons, then the statistics once the vote is recorded
+// Vote buttons, then the statistics once voted. One vote per character, ever:
+// the API remembers this browser (anonymous cookie) and tells us if it already voted.
 function Console({ personnage }) {
-  const [stats, setStats] = useState(null);
+  const [stats, setStats] = useState(null); // includes myVote
+  const [loading, setLoading] = useState(true);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    getStats(personnage.name)
+      .then((s) => !cancelled && setStats(s))
+      .catch((e) => !cancelled && setError(e.message))
+      .finally(() => !cancelled && setLoading(false));
+    return () => {
+      cancelled = true;
+    };
+  }, [personnage.name]);
 
   const index = personnagesList.findIndex((p) => p.id === personnage.id);
   const suivant = personnagesList[index + 1];
@@ -20,15 +33,24 @@ function Console({ personnage }) {
       setStats(await sendVote(personnage.name, choix));
     } catch (e) {
       setError(e.message);
+    } finally {
       setSending(false);
     }
   };
 
-  const voted = stats !== null;
+  const myVote = stats && stats.myVote;
+  const locked = loading || sending || Boolean(myVote);
 
   return (
     <>
-      {voted && <Statistics data={percentGauche(stats)} total={stats.total} />}
+      {myVote && (
+        <>
+          <p className="message" role="status">
+            Vous avez voté <strong>{myVote}</strong> pour {personnage.name}.
+          </p>
+          <Statistics data={percentGauche(stats)} total={stats.total} />
+        </>
+      )}
       {error && (
         <p className="message" role="alert">
           {error}
@@ -38,19 +60,21 @@ function Console({ personnage }) {
         <div className="console__choices">
           <button
             type="button"
-            disabled={voted || sending}
+            disabled={locked}
+            aria-pressed={myVote === "Gauche"}
             onClick={() => vote("Gauche")}
             className="console__button--left"
           >
-            Gauche
+            {myVote === "Gauche" ? "✓ Gauche" : "Gauche"}
           </button>
           <button
             type="button"
-            disabled={voted || sending}
+            disabled={locked}
+            aria-pressed={myVote === "Droite"}
             onClick={() => vote("Droite")}
             className="console__button--right"
           >
-            Droite
+            {myVote === "Droite" ? "✓ Droite" : "Droite"}
           </button>
         </div>
         <Link

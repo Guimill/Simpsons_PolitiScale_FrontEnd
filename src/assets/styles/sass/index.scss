@@ -170,12 +170,33 @@ footer {
   background: $color-primary;
   box-shadow: 0 10px 0 1px rgba(0, 0, 0, 0.1);
   text-align: center;
+  position: relative;
   h2 { font-size: clamp(1rem, 0.85rem + 0.8vw, 1.5rem); }
   &__img {
     width: 100%;
     aspect-ratio: 1;
     object-fit: contain;
   }
+  &--voted &__img { opacity: 0.55; }
+  &__badge {
+    @include cartoon-box;
+    @include outlined-text;
+    position: absolute;
+    right: 0.4rem;
+    bottom: 0.4rem;
+    z-index: 1;
+    padding: 0.15rem 0.5rem;
+    font-size: 0.85rem;
+    font-weight: bold;
+    &--gauche { background: $color-gauche; }
+    &--droite { background: $color-droite; }
+  }
+}
+
+.progress-note {
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: bold;
 }
 
 // Home: gallery of characters (as many columns as fit, at least 2 on a phone)
